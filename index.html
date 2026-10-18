@@ -179,10 +179,90 @@
   .mini-row { width: 100%; display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
   .mini-btn { width: auto; max-width: none; font-size: 12px; padding: 7px 12px; background: var(--white); color: var(--navy); border: 1.5px solid var(--navy); }
   .mini-btn:hover { background: var(--bg); }
-  .notice { width: 100%; font-size: 12px; background: #eaf3ff; color: var(--navy); border-radius: 6px; padding: 8px 10px; text-align: left; line-height: 1.6; }
+  .notice { white-space: pre-line; width: 100%; font-size: 12px; background: #eaf3ff; color: var(--navy); border-radius: 6px; padding: 8px 10px; text-align: left; line-height: 1.6; }
   .editor { width: 100%; border: 2px solid var(--navy); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 12px; text-align: left; background: #fbfcfe; }
   .ed-title { font-size: 15px; font-weight: 800; }
   .mini { width: auto; flex: 1; font-size: 14px; padding: 10px 12px; }
+
+  /* 複数社の志望企業 */
+  .picker { display: flex; flex-direction: column; gap: 8px; }
+  .picker-row { display: flex; gap: 8px; align-items: stretch; }
+  .picker-row select { flex: 1; min-width: 0; }
+  .add-btn { width: auto; max-width: none; padding: 0 16px; font-size: 14px; background: var(--navy); color: var(--white); }
+  .co-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .co-chip { display: inline-flex; align-items: center; gap: 6px; background: var(--navy); color: var(--white); border-radius: 999px; padding: 5px 6px 5px 12px; font-size: 12px; }
+  .co-chip button { width: 20px; height: 20px; padding: 0; max-width: none; border-radius: 50%; font-size: 12px; line-height: 20px; background: rgba(255,255,255,0.25); color: var(--white); }
+  .co-rows { margin-top: 10px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+  .co-row { padding: 5px 10px; border-radius: 6px; background: var(--white); }
+  .co-row.ok { color: var(--plus); font-weight: 800; border: 1px solid var(--plus); }
+  .co-row.ng { color: var(--gray); border: 1px solid #dde2ec; }
+
+  /* 操作バー（一時停止・速度・おまかせ） */
+  .ctrl { width: 100%; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .ctrl-btn { width: auto; max-width: none; padding: 6px 12px; font-size: 13px; background: var(--white); color: var(--navy); border: 1.5px solid var(--navy); border-radius: 8px; }
+  .ctrl-btn.on { background: var(--navy); color: var(--white); }
+  .speeds { display: flex; gap: 4px; }
+  .auto { margin-left: auto; display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; cursor: pointer; }
+  .auto input { width: 18px; height: 18px; accent-color: var(--navy); }
+  .focus-row { width: 100%; display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--gray); }
+  .focus-row select { flex: 1; padding: 7px 10px; font-size: 14px; }
+
+  /* 人生マップ（1マス＝1ヶ月、1行＝1年） */
+  .lifemap { width: 100%; display: grid; grid-template-columns: 30px repeat(12, 1fr); gap: 3px; align-items: center; }
+  .map-y { font-size: 10px; color: var(--gray); text-align: left; }
+  .cell { display: block; height: 10px; border-radius: 2px; background: #dde2ec; }
+  .cell.good { background: var(--plus); }
+  .cell.bad { background: var(--minus); }
+  .cell.flat { background: #8a93a8; }
+  .cell.now { background: var(--gold); animation: blink 0.9s ease-in-out infinite alternate; }
+  .cell.void { background: transparent; }
+  @keyframes blink { from { opacity: 1; } to { opacity: 0.4; } }
+
+  /* 人生の記録 */
+  .logbox { width: 100%; text-align: left; }
+  .log-title { font-size: 12px; color: var(--gray); margin-bottom: 6px; }
+  .log { max-height: 230px; overflow: auto; border: 1px solid #dde2ec; border-radius: 8px; background: #fbfcfe; }
+  .log-row { display: flex; gap: 8px; padding: 8px 10px; border-bottom: 1px solid #eef1f6; font-size: 12px; line-height: 1.6; cursor: pointer; }
+  .log-row:last-child { border-bottom: none; }
+  .log-row .star { font-size: 16px; color: #c8cdd9; line-height: 1.3; }
+  .log-row.starred { background: #fff8dc; }
+  .log-row.starred .star { color: var(--gold); }
+  .log-d { color: var(--gray); }
+  .log-empty { padding: 10px; font-size: 12px; color: var(--gray); }
+
+  /* 大学ランダムの案内 */
+  .econ-bar { width: 100%; margin: 0 0 8px; padding: 5px 10px; border-radius: 8px; font-size: 12px; font-weight: 700; text-align: left; background: #eef2fa; color: var(--navy); }
+  .econ-bar.slump { background: #fff1e0; color: #8a4b00; }
+  .econ-bar.crash { background: #fde4e1; color: #a02a22; }
+  .econ-bar.boom { background: #e3f5ea; color: #1f6b3d; }
+  .phase-bar { width: 100%; display: flex; gap: 4px; margin: 0 0 8px; }
+  .phase-bar span { flex: 1; text-align: center; font-size: 11px; font-weight: 700; padding: 4px 2px; border-radius: 6px; background: #e8ecf5; color: var(--gray); }
+  .phase-bar span.done { background: #cfd8ec; color: var(--navy); }
+  .phase-bar span.on { background: var(--navy); color: var(--white); }
+  .spec-head { display: flex; gap: 14px; align-items: center; margin: 4px 0 10px; }
+  .spec-univ { flex: 1; font-weight: 800; color: var(--navy); font-size: 17px; line-height: 1.4; }
+  .spec-univ small { display: block; font-size: 12px; font-weight: 700; color: var(--gray); }
+  .spec-list { margin: 0 0 12px; border: 1px solid #d5dbe8; border-radius: 10px; overflow: hidden; }
+  .spec-list div { display: flex; gap: 8px; padding: 8px 12px; font-size: 14px; }
+  .spec-list div:nth-child(odd) { background: #f4f6fb; }
+  .spec-list dt { flex: none; width: 5.5em; font-weight: 700; color: var(--gray); }
+  .spec-list dd { margin: 0; font-weight: 700; }
+  .spec-traits, .spec-list { text-align: left; }
+  .spec-traits { margin: 0 0 12px; padding-left: 1.2em; font-size: 13px; line-height: 1.8; }
+  .spec-traits .up { color: #1f7a45; font-weight: 700; }
+  .spec-traits .down { color: #b4413a; font-weight: 700; }
+  .univ-note { font-size: 13px; line-height: 1.7; background: #fff8dc; border-left: 5px solid var(--gold); border-radius: 6px; padding: 10px 12px; }
+
+  /* ドット絵のキャラクター */
+  .who { width: 100%; display: flex; gap: 12px; align-items: center; }
+  .who-text { flex: 1; min-width: 0; }
+  .avatar { flex: none; line-height: 0; }
+  .avatar svg { display: block; width: 48px; height: 60px; animation: bob 0.9s steps(1, end) infinite; }
+  .avatar.big svg { width: 80px; height: 100px; }
+  @keyframes bob { 0% { transform: translateY(0); } 50% { transform: translateY(-3px); } 100% { transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { .avatar svg { animation: none; } }
+  .bubble { position: relative; margin-top: 8px; background: var(--white); border: 2px solid var(--navy); border-radius: 8px; padding: 5px 9px; font-size: 12px; font-weight: 700; line-height: 1.5; text-align: left; }
+  .bubble::before { content: ""; position: absolute; left: -8px; top: 9px; border: 6px solid transparent; border-right-color: var(--navy); border-left: 0; }
 
   /* ===== ガチャ演出 ===== */
   .stage-text { font-size: 24px; font-weight: 800; min-height: 40px; animation: pop 0.25s ease; }
@@ -226,10 +306,11 @@
 
   <!-- タイトル -->
   <section id="screen-title" class="screen">
+    <div class="avatar big" id="title-avatar"></div>
     <p class="title-sub">〜 入学から内定まで 〜</p>
     <h1 class="title-main">限界就活<br>ライフ</h1>
     <div class="title-line"></div>
-    <p class="title-note">入学から就活の終盤まで、1ヶ月ずつ進む39ヶ月。<br>専攻も、志望先も、自分で決める。<br>志望は途中で変えてもOK。所要時間は約10分。</p>
+    <p class="title-note">入学から就活の終盤まで、1ヶ月ずつ進む39ヶ月。<br>専攻も、受ける会社も、自分で決める。<br>選択も志望も、あとから変えてOK。所要時間は約10分。</p>
     <button class="btn-primary" id="btn-start">入学手続きをする</button>
   </section>
 
@@ -240,13 +321,7 @@
     <div class="group-label">① 入学する大学</div>
     <div class="group">
       <h3>大学ランク</h3>
-      <div class="chips" id="chips-univ">
-        <button class="chip" data-value="S">最難関クラスの大学</button>
-        <button class="chip" data-value="A">難関クラスの大学</button>
-        <button class="chip" data-value="B">中堅クラスの大学</button>
-        <button class="chip" data-value="C">のびしろ大学</button>
-        <button class="chip selected" data-value="random">おまかせ（くじ）</button>
-      </div>
+      <p class="univ-note">🎲 合格発表までのお楽しみ！<br>入学する大学のランク・<b>大学の場所</b>・あなたの<b>出身地</b>は、入学した瞬間に完全ランダムで決まります。決まったスペックは、ゲーム開始前に確認できます。</p>
     </div>
     <div class="group">
       <h3>大学の専攻</h3>
@@ -254,12 +329,7 @@
     </div>
     <div class="group">
       <h3>実家の環境</h3>
-      <div class="chips" id="chips-family">
-        <button class="chip" data-value="rich">実家が太い</button>
-        <button class="chip" data-value="normal">ふつうの家庭</button>
-        <button class="chip" data-value="poor">奨学金とバイト頼み</button>
-        <button class="chip selected" data-value="random">おまかせ（くじ）</button>
-      </div>
+      <p class="univ-note">🎲 家庭環境も、入学した瞬間に完全ランダムで決まります。<br>（実家が太い／ふつうの家庭／奨学金とバイト頼み）</p>
     </div>
 
     <div class="group-label">② 将来の志望（あとから変更できます）</div>
@@ -268,32 +338,84 @@
       <select id="sel-ind"></select>
     </div>
     <div class="group">
-      <h3>行きたい企業（任意）</h3>
-      <select id="sel-co"></select>
+      <h3>行きたい企業（任意・最大5社。複数社を受けられます）</h3>
+      <div class="picker">
+        <select id="su-pick-ind"></select>
+        <div class="picker-row">
+          <select id="su-pick-co"></select>
+          <button class="add-btn" id="su-add" type="button">追加</button>
+        </div>
+      </div>
+      <div class="co-chips" id="su-list"></div>
     </div>
     <div class="group">
       <h3>就きたい職種</h3>
       <select id="sel-job"></select>
     </div>
 
-    <p class="small-note">※「おまかせ」はくじで決まります。企業は指定しなくても遊べます。<br>※大学ランクや数値、企業名はゲーム用の架空の目安・演出で、現実の統計や採用とは関係ありません。</p>
-    <button class="btn-primary" id="btn-enter">入学する</button>
+    <p class="small-note">※就活の年の景気（好況〜深刻な不況）も運しだいで、選考のしやすさが変わります。<br>※大学3年の秋に「就職か、大学院進学か」を選ぶ分かれ道があります。<br>※「おまかせ」はくじで決まります。企業は指定しなくても遊べます。<br>※会社を複数指定すると1社ずつ選考されます（増やすほど、1社あたりの対策は少し薄くなります）。<br>※大学ランクや数値、企業名はゲーム用の架空の目安・演出で、現実の統計や採用とは関係ありません。</p>
+    <button class="btn-primary" id="btn-enter">入学する（スペックを決める）</button>
+  </section>
+
+  <!-- 生成されたスペックの確認 -->
+  <section id="screen-spec" class="screen top">
+    <h2 class="setup-title">あなたのスペック</h2>
+    <div class="spec-head">
+      <div class="avatar big" id="spec-avatar"></div>
+      <div class="spec-univ" id="spec-univ"></div>
+    </div>
+    <dl class="spec-list" id="spec-list"></dl>
+    <div class="group-label">入学時のステータス</div>
+    <div class="stats" id="spec-stats"></div>
+    <div class="group-label">この環境の特徴</div>
+    <ul class="spec-traits" id="spec-traits"></ul>
+    <p class="small-note">※地域・家庭の影響はゲーム用の架空の設定で、現実の有利不利を示すものではありません。</p>
+    <button class="btn-primary" id="btn-begin">この人生で始める</button>
+    <button class="btn-outline" id="btn-spec-back" style="margin-top:8px">設定に戻る</button>
   </section>
 
   <!-- イベント（1ヶ月ごと） -->
   <section id="screen-event" class="screen top">
+    <div class="ctrl">
+      <button class="ctrl-btn" id="btn-pause" type="button" title="一時停止">❚❚</button>
+      <div class="speeds" id="speeds">
+        <button class="ctrl-btn sp on" data-s="1" type="button">1×</button>
+        <button class="ctrl-btn sp" data-s="2" type="button">2×</button>
+        <button class="ctrl-btn sp" data-s="4" type="button">4×</button>
+      </div>
+      <label class="auto"><input type="checkbox" id="chk-auto"> おまかせ</label>
+    </div>
     <div class="event-head"><span class="when" id="ev-when"></span><span class="step" id="ev-step"></span></div>
-    <div class="dots" id="ev-dots"></div>
-    <p class="profile" id="ev-profile"></p>
+    <div class="econ-bar" id="ev-econ" hidden></div>
+    <div class="phase-bar" id="ev-phase" hidden></div>
+    <div class="lifemap" id="ev-map"></div>
+    <div class="who">
+      <div class="avatar" id="ev-avatar"></div>
+      <div class="who-text">
+        <p class="profile" id="ev-profile"></p>
+        <p class="bubble" id="ev-bubble"></p>
+      </div>
+    </div>
     <p class="notice" id="ev-notice" hidden></p>
+    <div class="focus-row"><label for="sel-focus">今月の重点</label><select id="sel-focus"></select></div>
     <div class="mini-row" id="ev-tools">
+      <button class="mini-btn" id="btn-skip" type="button" hidden>次の決断まで進む</button>
       <button class="mini-btn" id="btn-edit">志望を変更</button>
-      <button class="mini-btn" id="btn-undo" hidden>選び直す</button>
     </div>
     <div class="editor" id="ed-panel" hidden>
       <div class="ed-title">志望の変更</div>
       <div class="group"><h3>行きたい業界</h3><select id="ed-ind"></select></div>
-      <div class="group"><h3>行きたい企業（任意）</h3><select id="ed-co"></select></div>
+      <div class="group">
+        <h3>受ける会社（最大5社）</h3>
+        <div class="picker">
+          <select id="ed-pick-ind"></select>
+          <div class="picker-row">
+            <select id="ed-pick-co"></select>
+            <button class="add-btn" id="ed-add" type="button">追加</button>
+          </div>
+        </div>
+        <div class="co-chips" id="ed-list"></div>
+      </div>
       <div class="group"><h3>就きたい職種</h3><select id="ed-job"></select></div>
       <p class="small-note">※業界を変えると、業界理解が半分になります。企業・職種だけの変更なら影響はありません。</p>
       <div class="mini-row">
@@ -306,6 +428,10 @@
     <div class="choices" id="ev-choices"></div>
     <div id="ev-outcome" hidden></div>
     <button class="btn-primary" id="btn-next" hidden>次の月へ</button>
+    <div class="logbox">
+      <div class="log-title">人生の記録（新しい順。行をタップで☆）</div>
+      <div class="log" id="ev-log"></div>
+    </div>
   </section>
 
   <!-- 選考演出 -->
@@ -317,10 +443,15 @@
 
   <!-- 結果 -->
   <section id="screen-result" class="screen top">
+    <div class="avatar big" id="res-avatar"></div>
     <span class="rarity" id="result-rarity"></span>
     <h2 class="result-title" id="result-title"></h2>
     <div class="result-box" id="result-box"></div>
     <p class="comment" id="result-comment"></p>
+    <div class="logbox">
+      <div class="log-title">この3年強の記録（行をタップで☆）</div>
+      <div class="log" id="res-log"></div>
+    </div>
     <div class="stats" id="result-stats"></div>
     <div class="sim" id="sim-box" hidden></div>
     <div class="buttons">
@@ -497,10 +628,30 @@ const UNIV = {
 };
 // ===== 実家の環境（money は最初のお金） =====
 const FAMILY = {
-  rich: { name: "実家が太い", money: 60 },
-  normal: { name: "ふつうの家庭", money: 40 },
-  poor: { name: "奨学金とバイト頼み", money: 20 }
+  rich: { name: "実家が太い", money: 60, start: { comu: 2, gakuchika: 2 }, note: "留学・習い事など経験の機会に恵まれている（コミュ力・ガクチカ＋）" },
+  normal: { name: "ふつうの家庭", money: 40, start: {}, note: "お金も経験も、ほどほどに安定" },
+  poor: { name: "奨学金とバイト頼み", money: 20, start: { comu: 2, gakuchika: 3, tairyoku: -3 }, note: "バイトで鍛えられたが、体力はすり減りがち（ガクチカ・コミュ力＋、体力－）" }
 };
+// 実家通い／一人暮らしによる違い（お金・体力・コミュ力）
+function livingFx(st) {
+  const fam = st.family;
+  if (st.home === st.campus) return { money: 5, tairyoku: 3 };
+  return { money: fam === "rich" ? -4 : -10, comu: 2, gakuchika: 1 };
+}
+
+// ===== 地域（出身地・大学の場所）。loc は都市部の情報・機会の多さ、trip は就活本番の交通費 =====
+const REGIONS = {
+  tokyo: { name: "首都圏", area: "東京・神奈川・埼玉・千葉", w: 30, loc: 2, trip: 2 },
+  kansai: { name: "関西", area: "大阪・京都・兵庫など", w: 18, loc: 1, trip: 4 },
+  tokai: { name: "東海", area: "愛知・静岡・岐阜など", w: 10, loc: 0, trip: 5 },
+  city: { name: "地方都市", area: "札幌・仙台・広島・福岡など", w: 22, loc: -1, trip: 8 },
+  rural: { name: "地方", area: "上記以外の地域", w: 20, loc: -2, trip: 12 }
+};
+function pickRegion() {
+  let r = Math.random() * 100;
+  for (const k in REGIONS) { if (r < REGIONS[k].w) return k; r -= REGIONS[k].w; }
+  return "rural";
+}
 
 // ===== 専攻 =====
 // start：入学時の能力の増減 / fit：志望業界との相性（高いほど就活で有利）/ jobFit：職種との相性
@@ -532,12 +683,64 @@ const JOBS = {
   research: { name: "研究・開発職", w: { gaku: 0.8, tairyoku: 0.2 } }
 };
 
+// ===== 景気（就活の年の経済状況）=====
+// shift：就活での追い風・向かい風（業界ごとの景気の影響度 IND_CYCLE をかけて使う）
+const ECON_ORDER = ["boom", "normal", "slump", "crash"];
+const ECON = {
+  boom: { name: "好況", icon: "📈", w: 25, shift: 6,
+    news: "景気が好調で、企業の求人が増えているという報道が相次いでいる",
+    note: "売り手市場の気配。企業は採用に積極的だ。",
+    main: "求人が多く、内定を得やすい年です。" },
+  normal: { name: "平常", icon: "📊", w: 45, shift: 0,
+    news: "景気は横ばいで、来年の採用は例年並みになりそうだという見通しが出ている",
+    note: "採用環境はいつも通りになりそうだ。",
+    main: "例年並みの採用環境です。" },
+  slump: { name: "不況", icon: "📉", w: 22, shift: -6,
+    news: "景気が悪化し、採用を絞る企業が増えているという報道が出ている",
+    note: "買い手市場の気配。選考は厳しくなりそうだ。",
+    main: "採用を絞る企業が多く、選考は厳しめの年です。" },
+  crash: { name: "深刻な不況", icon: "🧊", w: 8, shift: -12,
+    news: "深刻な不況で、採用中止や内定取り消しのニュースが相次いでいる",
+    note: "就職氷河期の再来。内定を取るのは相当に難しい。",
+    main: "採用中止が相次ぐ就職氷河期。内定を取るのは非常に難しい年です。" }
+};
+function pickEcon() {
+  let r = Math.random() * 100;
+  for (const k of ECON_ORDER) { if (r < ECON[k].w) return k; r -= ECON[k].w; }
+  return "normal";
+}
+// 2年後の景気（大学院に進んだとき）：同じ状態が続きやすく、1段階ずつ動く
+function driftEcon(k) {
+  const i = ECON_ORDER.indexOf(k), r = Math.random();
+  const j = r < 0.5 ? i : r < 0.75 ? i - 1 : i + 1;
+  return ECON_ORDER[Math.max(0, Math.min(ECON_ORDER.length - 1, j))];
+}
+// 業界ごとの景気の影響の受けやすさ（公務員は影響が小さく、メーカー・商社・外資は大きい）
+const IND_CYCLE = { auto: 1.4, elec: 1.2, it: 1.0, media: 1.1, trade: 1.3, finance: 1.2, food: 0.6, chem: 0.9, build: 1.2, infra: 0.5, retail: 1.0, gov: 0.2, foreign: 1.3 };
+// 景気による加点・減点。向かい風は、備え（adapt）があるほど和らぐ（1つにつき2割、最大6割）
+function econTerm(st, ind) {
+  const v = ECON[st.econ].shift * (IND_CYCLE[ind] === undefined ? 1 : IND_CYCLE[ind]);
+  return v < 0 ? v * (1 - Math.min(0.6, (st.adapt || 0) * 0.2)) : v;
+}
+
+// ===== 大学院進学ルート =====
+// gradFit：大学院に進んだときの就活での有利さ（専攻・職種ごと。文系は就職ルートとほぼ同じ、理工系は少し有利）
+const GRAD_BASE = -12;  // 院生ルートは月数が長く能力が伸びやすいぶん、基準を下げて就職ルートと釣り合わせている
+const GRAD_MAJOR = { econ: 1, law: 2, lit: 0, sci: 5, art: 1 };
+const GRAD_JOB = { eng: 2, research: 3 };
+function gradBonus(st) {
+  return GRAD_BASE + (GRAD_MAJOR[st.major] || 0) + (GRAD_JOB[st.job] || 0);
+}
+
 // ===== 文章の中の {ind}（業界）{job}（職種）{co}（企業）を置き換える =====
-function coText(st) { return st.co || (INDUSTRIES[st.ind].label + "の人気企業"); }
+function coText(st) { return st.cos.length ? st.cos[0].name : (INDUSTRIES[st.ind].label + "の人気企業"); }
 function tpl(s, st) {
   return s.replace(/\{ind\}/g, INDUSTRIES[st.ind].label)
           .replace(/\{job\}/g, JOBS[st.job].name)
-          .replace(/\{co\}/g, coText(st));
+          .replace(/\{co\}/g, coText(st))
+          .replace(/\{focus\}/g, FOCUS[st.focus || "balance"].name)
+          .replace(/\{econnews\}/g, ECON[st.econ || "normal"].news)
+          .replace(/\{econnote\}/g, ECON[st.econ || "normal"].note);
 }
 
 // ===== 1ヶ月ごとのイベント =====
@@ -731,7 +934,7 @@ const KEY_EVENTS = {
     { label: "サークルや部活の引退試合に打ち込む", outcomes: [
       { p: 1, text: "最後までやりきった！ガクチカの厚みが増した。", fx: { comu: 4, tairyoku: 2, gakuchika: 5 } } ] }
   ] },
-  k21: { q: "12月。冬のインターンやES提出が本格化してきた。", choices: [
+  k21: { trip: true, mainStart: true, q: "12月。冬のインターンやES提出が本格化してきた。", choices: [
     { label: "ESを手当たり次第に書きためる", outcomes: [
       { p: 1, text: "量産体制に入った。ただ、体力が削られていく。", fx: { gakuchika: 5, gaku: 3, tairyoku: -7, gyokai: 2 } } ] },
     { label: "志望度の高い会社の対策に集中する", outcomes: [
@@ -781,6 +984,200 @@ const KEY_EVENTS = {
       { p: 0.4, text: "予定が詰まりすぎてヘトヘトに…。", fx: { gakuchika: 2, tairyoku: -11 } } ] },
     { label: "第一志望の対策にひたすら集中する", outcomes: [
       { p: 1, text: "志望度の高さを言葉で伝えられそうだ。", fx: { gyokai: 6, comu: 4, tairyoku: -4 } } ] }
+  ] },
+  ke1: { reveal: true, q: "ニュース速報：{econnews}。就活を意識しはじめた今、どう受け止める？", choices: [
+    { label: "ニュースを読み込んで、業界への影響を考える", outcomes: [
+      { p: 1, text: "景気と業界のつながりが少し見えてきた。{econnote}", fx: { gyokai: 7, gaku: 3 }, adapt: 1 } ] },
+    { label: "経済の入門書を読んでみる", outcomes: [
+      { p: 1, text: "仕組みがわかると、ニュースが面白くなった。{econnote}", fx: { gaku: 7, gyokai: 3 }, adapt: 1 } ] },
+    { label: "気にせず、今やりたいことに集中する", outcomes: [
+      { p: 1, text: "目の前のことに熱中できた。景気のことは、まだ先の話だ。", fx: { gakuchika: 5, comu: 3, tairyoku: 2 } } ] }
+  ] },
+  ke2_boom: { q: "好景気で、企業の採用活動が早まっている。インターン経由の早期選考の話も多い。どう動く？", choices: [
+    { label: "早期選考を狙って、インターンの応募を増やす", outcomes: [
+      { p: 0.7, text: "手応えあり。複数社から声がかかった！", fx: { gyokai: 7, gakuchika: 5, comu: 3, tairyoku: -5 } },
+      { p: 0.3, text: "予定を詰めすぎて疲弊…。でも収穫はあった。", fx: { gyokai: 4, gakuchika: 2, tairyoku: -9 } } ] },
+    { label: "売り手市場でも油断せず、実力を磨く", outcomes: [
+      { p: 1, text: "余裕をもって準備できた。自信がついてきた。", fx: { gaku: 6, gakuchika: 4, tairyoku: 3 } } ] },
+    { label: "条件の良い企業を、じっくり比較する", outcomes: [
+      { p: 1, text: "企業を見る目が養われた。働き方の軸が定まってきた。", fx: { gyokai: 8, comu: 3 } } ] }
+  ] },
+  ke2_normal: { q: "景気は例年並み。就活の時期をにらんで、そろそろ動き出したい。どうする？", choices: [
+    { label: "インターンの応募を増やす", outcomes: [
+      { p: 0.6, text: "いくつか通過！現場の空気を知るチャンスだ。", fx: { gyokai: 7, gakuchika: 4, comu: 3, tairyoku: -4 } },
+      { p: 0.4, text: "落ちるものも多かった…。でもES作成に慣れた。", fx: { gyokai: 3, gakuchika: 3, tairyoku: -3 } } ] },
+    { label: "資格や英語の勉強をする", outcomes: [
+      { p: 1, text: "武器が増えた。選考でも話のネタになりそうだ。", fx: { gaku: 8, gakuchika: 3, tairyoku: -3 } } ] },
+    { label: "気になる業界の研究を進める", outcomes: [
+      { p: 1, text: "業界の構造や課題が見えてきた。", fx: { gyokai: 9, gaku: 3 } } ] }
+  ] },
+  ke2_slump: { q: "不況で、採用を絞る企業が増えている。先輩も苦戦しているという。どう備える？", choices: [
+    { label: "安定した業界・企業にも視野を広げる", outcomes: [
+      { p: 1, text: "志望の幅が広がり、持ち駒が増えそうだ。", fx: { gyokai: 6, comu: 2, gakuchika: 2 }, adapt: 2 } ] },
+    { label: "スキルや資格で、他の人と差をつける", outcomes: [
+      { p: 1, text: "武器が増えた。厳しい選考でも差がつきそうだ。", fx: { gaku: 8, gakuchika: 4, tairyoku: -3 }, adapt: 1 } ] },
+    { label: "バイトで貯金して、長期戦に備える", outcomes: [
+      { p: 1, text: "貯金ができた。就活が長引いても、心に余裕がある。", fx: { money: 12, comu: 2, tairyoku: -5 }, adapt: 1 } ] }
+  ] },
+  ke2_crash: { q: "深刻な不況。採用中止のニュースが相次ぎ、就活は長期戦になりそうだ…。", choices: [
+    { label: "公務員や安定企業の併願準備を始める", outcomes: [
+      { p: 1, text: "選択肢を広げられた。心の余裕も少し戻ってきた。", fx: { gaku: 6, gyokai: 4, comu: 2 }, adapt: 3 } ] },
+    { label: "大学院進学も視野に入れて情報を集める", outcomes: [
+      { p: 1, text: "進学という選択肢が見えて、気持ちが少し楽になった。", fx: { gaku: 5, gyokai: 3, tairyoku: 2 }, adapt: 1 } ] },
+    { label: "人脈をフル活用して情報を集める", outcomes: [
+      { p: 0.6, text: "OB・OGから、穴場の求人情報を教えてもらえた！", fx: { comu: 8, gyokai: 6 }, adapt: 2 },
+      { p: 0.4, text: "どこも採用は絞っていた…。でも人脈は広がった。", fx: { comu: 3, gyokai: 2, tairyoku: -3 }, adapt: 1 } ] }
+  ] },
+  kg0: { decide: "path", q: "大学3年の秋。周りが進路を考えはじめた。就職か、大学院か──あなたはどうする？", choices: [
+    { label: "学部卒で就職活動に進む", outcomes: [
+      { p: 1, text: "まっすぐ就職を目指すことに決めた。気持ちが引き締まる。", fx: { gakuchika: 3, gyokai: 3 }, path: "job" } ] },
+    { label: "大学院に進学して、研究を深める", outcomes: [
+      { p: 1, text: "研究室の先輩にも相談して、院試を受けることに決めた。研究の道へ！", fx: { gaku: 5, gakuchika: 2, tairyoku: -2 }, path: "grad" } ] },
+    { label: "まずは先輩に話を聞いてから考える", outcomes: [
+      { p: 0.5, text: "院生の先輩の話に刺激を受けた。やっぱり研究が面白そうだ！（大学院進学ルートへ）", fx: { gaku: 3, comu: 3, gyokai: 2 }, path: "grad" },
+      { p: 0.5, text: "就職した先輩の話がリアルだった。就活に集中しよう。（就職ルートへ）", fx: { comu: 3, gyokai: 5 }, path: "job" } ] }
+  ] },
+  kg1: { q: "12月。院進を決めた。まずは研究室選び。どうする？", choices: [
+    { label: "気になる研究室を3つ見学する", outcomes: [
+      { p: 0.7, text: "研究室の雰囲気がつかめた。教授との相性も見えてきた！", fx: { gaku: 5, comu: 5, gyokai: 3 } },
+      { p: 0.3, text: "どこも魅力的で決めきれない…。見学だけで疲れてしまった。", fx: { gaku: 3, comu: 2, tairyoku: -4 } } ] },
+    { label: "志望分野の論文を読み込む", outcomes: [
+      { p: 1, text: "専門用語に慣れてきた。研究の解像度が上がった。", fx: { gaku: 10, gakuchika: 2, tairyoku: -3 } } ] },
+    { label: "教授にメールで直接アポを取る", outcomes: [
+      { p: 0.6, text: "熱意が伝わり、面談の時間をもらえた！", fx: { comu: 6, gakuchika: 5, gaku: 3 } },
+      { p: 0.4, text: "返信がなかった…。心が折れかけた。", fx: { comu: 1, tairyoku: -3 } } ] }
+  ] },
+  kg2: { q: "2月。院試の勉強計画を立てる時期。専門科目と英語、どう攻める？", choices: [
+    { label: "過去問を何周も解く", outcomes: [
+      { p: 1, text: "出題パターンが見えてきた。手応えがある。", fx: { gaku: 11, tairyoku: -4 } } ] },
+    { label: "英語（論文講読・TOEIC）を重点的にやる", outcomes: [
+      { p: 1, text: "英語への抵抗感が薄れた。論文も読みやすくなった。", fx: { gaku: 7, comu: 3, gyokai: 2 } } ] },
+    { label: "研究室の先輩にノートを見せてもらう", outcomes: [
+      { p: 1, text: "要点が整理できた。研究室の人脈も広がった。", fx: { gaku: 6, comu: 5 } } ] }
+  ] },
+  kg3: { q: "4月。研究室に配属された。卒業研究のテーマを決める時期だ。", choices: [
+    { label: "指導教員の提案テーマに乗る", outcomes: [
+      { p: 1, text: "スムーズにスタート。実験がだんだん楽しくなってきた。", fx: { gaku: 6, gakuchika: 6, tairyoku: -3 } } ] },
+    { label: "自分のやりたいテーマを提案する", outcomes: [
+      { p: 0.5, text: "面白いと採用された！自分で考えて動く力がついた。", fx: { gakuchika: 10, gaku: 5, tairyoku: -5 } },
+      { p: 0.5, text: "「まだ早い」と却下…。でも基礎の勉強になった。", fx: { gaku: 4, gakuchika: 3 } } ] },
+    { label: "まず研究室の仲間と打ち解ける", outcomes: [
+      { p: 1, text: "ラボの雰囲気が良くなった。相談しやすい環境になった。", fx: { comu: 8, gakuchika: 2, tairyoku: 2 } } ] }
+  ] },
+  kg4: { q: "6月。院試の出願が始まる。研究計画書の書き方が分からない…。", choices: [
+    { label: "教授に添削を何度もお願いする", outcomes: [
+      { p: 1, text: "計画書がぐっと良くなった。教授にも熱意が伝わった。", fx: { gaku: 5, gakuchika: 6, comu: 3 } } ] },
+    { label: "合格した先輩の計画書を参考にする", outcomes: [
+      { p: 1, text: "型がつかめた。書きたいことが整理できた。", fx: { gaku: 4, gakuchika: 4, comu: 3 } } ] },
+    { label: "自力で書き上げる", outcomes: [
+      { p: 0.6, text: "独創的な計画書になった！自信がつく。", fx: { gakuchika: 8, gaku: 4, tairyoku: -4 } },
+      { p: 0.4, text: "独りよがりになってしまった…。睡眠時間だけが減った。", fx: { gakuchika: 2, tairyoku: -6 } } ] }
+  ] },
+  kg5: { q: "8月。いよいよ院試。直前の過ごし方は？", choices: [
+    { label: "専門科目の最終チェックをする", outcomes: [
+      { p: 1, text: "知識が頭の中で整理された。", fx: { gaku: 8, tairyoku: -3 } } ] },
+    { label: "しっかり睡眠をとって臨む", outcomes: [
+      { p: 1, text: "頭がさえている。コンディションは万全だ。", fx: { tairyoku: 12 } } ] },
+    { label: "試験会場の下見と持ち物の確認をする", outcomes: [
+      { p: 1, text: "当日の流れが見えて、落ち着いて臨めそうだ。", fx: { comu: 3, tairyoku: 4, gaku: 2 } } ] }
+  ] },
+  kg6: { q: "9月。院試の合格発表の日。結果は──？（学力が高いほど合格しやすい）", choices: [
+    { label: "ネットの合格発表を一人で確認する", exam: true, outcomes: [
+      { p: 0.75, pass: true, text: "受験番号があった！第一志望の研究室に進めることが決まった！", fx: { gaku: 4, gakuchika: 5, comu: 2 } },
+      { p: 0.25, pass: false, text: "番号がない…。でも二次募集で、別の研究室に拾ってもらえた。", fx: { gaku: -2, gakuchika: -2, tairyoku: -4 } } ] },
+    { label: "研究室の仲間と一緒に確認する", exam: true, outcomes: [
+      { p: 0.75, pass: true, text: "全員合格！みんなで抱き合って喜んだ。", fx: { comu: 6, gakuchika: 3, gaku: 2 } },
+      { p: 0.25, pass: false, text: "自分だけ不合格…。仲間に励まされ、二次募集で拾ってもらえた。", fx: { comu: 3, gaku: -2, tairyoku: -4 } } ] },
+    { label: "見るのが怖いので、散歩しながら待つ", exam: true, outcomes: [
+      { p: 0.75, pass: true, text: "ドキドキで見たら合格だった！膝から力が抜けた。", fx: { tairyoku: 5, gakuchika: 3, gaku: 2 } },
+      { p: 0.25, pass: false, text: "不合格…。でも二次募集があると聞いて気持ちを切り替えた。", fx: { tairyoku: 2, gaku: -2, gakuchika: -2 } } ] }
+  ] },
+  kg7: { q: "4月。大学院生活がスタート！修士論文に向けて、どう動く？", choices: [
+    { label: "研究に没頭して実験を回す", outcomes: [
+      { p: 0.7, text: "データが次々とたまる。研究者の顔つきになってきた。", fx: { gaku: 9, gakuchika: 6, tairyoku: -6 } },
+      { p: 0.3, text: "実験が失敗続き…。でも原因を探る力がついた。", fx: { gaku: 5, gakuchika: 3, tairyoku: -8 } } ] },
+    { label: "ゼミで積極的に発表する", outcomes: [
+      { p: 1, text: "議論で鍛えられた。話す力が磨かれた。", fx: { gaku: 5, comu: 7, gakuchika: 3 } } ] },
+    { label: "TA・RAの仕事で生活費を稼ぐ", outcomes: [
+      { p: 1, text: "収入と教える経験を両方ゲット！", fx: { money: 9, comu: 4, gakuchika: 3, tairyoku: -3 } } ] }
+  ] },
+  kg8: { q: "6月。学会発表のチャンスが来た。どうする？", choices: [
+    { label: "ポスター発表に挑戦する", outcomes: [
+      { p: 0.6, text: "質問が飛び交って手応えあり！他大学の人脈も増えた。", fx: { gakuchika: 9, comu: 6, gaku: 4, tairyoku: -4 } },
+      { p: 0.4, text: "質問に答えきれず悔しい…。でも次への課題が見えた。", fx: { gakuchika: 4, gaku: 5, tairyoku: -5 } } ] },
+    { label: "口頭発表に応募する", outcomes: [
+      { p: 0.4, text: "採択！大舞台でやりきった。自信がついた。", fx: { gakuchika: 11, comu: 8, gaku: 4, tairyoku: -6, money: -3 } },
+      { p: 0.6, text: "不採択…。でも発表資料は次に活きる。", fx: { gakuchika: 3, gaku: 4 } } ] },
+    { label: "今回は見送って研究に専念する", outcomes: [
+      { p: 1, text: "じっくり研究を進められた。", fx: { gaku: 7, tairyoku: 1 } } ] }
+  ] },
+  kgp1: { reveal: true, revealNotice: true, q: "7月。研究も一段落。ここから「就活準備フェーズ」に入る。まず何から手をつける？", choices: [
+    { label: "自己分析と、研究内容の「言語化」を始める", outcomes: [
+      { p: 1, text: "研究の強みと、やりたいことが言葉になってきた。", fx: { gakuchika: 8, comu: 3, gyokai: 3 } } ] },
+    { label: "{ind}の企業・インターン情報を集める", outcomes: [
+      { p: 1, text: "募集時期や選考の流れが見えてきた。", fx: { gyokai: 9, gaku: 2, tairyoku: -2 } } ] },
+    { label: "研究室の先輩に、院生の就活の進め方を聞く", outcomes: [
+      { p: 1, text: "院生就活のリアルが分かった。推薦や早期選考の話も聞けた。", fx: { comu: 6, gyokai: 5, gakuchika: 2 } } ] }
+  ] },
+  kg9: { q: "8月。就活準備フェーズの本番、夏のインターン。{ind}の技術・研究系の仕事を知るチャンスだ。", choices: [
+    { label: "{ind}の長期インターンに参加する", outcomes: [
+      { p: 0.6, text: "研究の知識が仕事で活きた！社員さんから高評価。", fx: { gyokai: 11, gakuchika: 6, comu: 5, tairyoku: -6 } },
+      { p: 0.4, text: "研究との両立で疲弊…。でも得たものは大きい。", fx: { gyokai: 6, gakuchika: 3, tairyoku: -10 } } ] },
+    { label: "教授のつてで企業の研究者に会いに行く", outcomes: [
+      { p: 1, text: "企業の研究所のリアルが聞けた。推薦のヒントももらえた。", fx: { gyokai: 8, comu: 6 } } ] },
+    { label: "夏は研究に専念する", outcomes: [
+      { p: 1, text: "研究が一気に進んだ。就活は秋から本気を出そう。", fx: { gaku: 7, gakuchika: 4, gyokai: -1 } } ] }
+  ] },
+  kgp2: { q: "9月。夏のインターンが終わった。振り返りと、次の一手は？", choices: [
+    { label: "インターンでのフィードバックを整理して、志望動機に活かす", outcomes: [
+      { p: 1, text: "自分の強みと志望理由がつながってきた。", fx: { gyokai: 8, gakuchika: 5, comu: 2 } } ] },
+    { label: "インターンで知り合った社員にOB・OG訪問をお願いする", outcomes: [
+      { p: 0.7, text: "快く受けてもらえた！リクルーターともつながった。", fx: { comu: 8, gyokai: 8 } },
+      { p: 0.3, text: "忙しそうで日程が合わなかった…。", fx: { comu: 2, gyokai: 2, tairyoku: -2 } } ] },
+    { label: "研究に戻って、成果を出すことを優先する", outcomes: [
+      { p: 1, text: "研究が進んだ。ただ、就活の情報は少し遅れ気味。", fx: { gaku: 7, gakuchika: 3, gyokai: -1 } } ] }
+  ] },
+  kgp3: { q: "11月。冬のインターンや早期選考の案内が届きはじめた。研究との両立、どうする？", choices: [
+    { label: "{co}の早期選考・冬インターンに絞って応募する", outcomes: [
+      { p: 0.6, text: "書類選考を通過！選考が一歩先に進んだ。", fx: { gyokai: 8, gakuchika: 5, comu: 3, tairyoku: -4 } },
+      { p: 0.4, text: "今回は見送りに…。でも志望動機は固まった。", fx: { gyokai: 4, gakuchika: 3, tairyoku: -3 } } ] },
+    { label: "学内推薦の募集要項を確認して、教授に相談する", outcomes: [
+      { p: 1, text: "推薦の条件が分かり、計画を立てられた。", fx: { gyokai: 5, comu: 4, gaku: 3 } } ] },
+    { label: "研究の区切りがつくまで、就活はお休みする", outcomes: [
+      { p: 1, text: "研究が一気に進み、体力も回復した。", fx: { gaku: 6, tairyoku: 8, gyokai: -1 } } ] }
+  ] },
+  kg10: { trip: true, mainStart: true, q: "12月。就活が本格化。研究と就活の両立が課題になってきた。", choices: [
+    { label: "{co}に絞って、ESと面接対策をする", outcomes: [
+      { p: 1, text: "研究内容を自分の言葉で語れるようになった。", fx: { gyokai: 8, gakuchika: 5, comu: 3, tairyoku: -4 } } ] },
+    { label: "教授の推薦（学校推薦）を使う", outcomes: [
+      { p: 0.6, text: "推薦のおかげで選考がスムーズに進みそうだ！", fx: { gyokai: 5, comu: 3, gaku: 3 } },
+      { p: 0.4, text: "推薦枠はすでに埋まっていた…。切り替えて準備しよう。", fx: { gyokai: 2, tairyoku: -3 } } ] },
+    { label: "自由応募で広く受ける", outcomes: [
+      { p: 1, text: "選択肢は広がったが、研究が滞りがちに…。", fx: { gyokai: 4, gakuchika: 3, tairyoku: -7 } } ] }
+  ] },
+  kg11: { q: "3月、就活解禁。研究も忙しい時期だ。", choices: [
+    { label: "{ind}の説明会を厳選して参加する", outcomes: [
+      { p: 1, text: "効率よく情報を集められた。軸がはっきりしてきた。", fx: { gyokai: 9, comu: 3, tairyoku: -3 } } ] },
+    { label: "研究発表のスライドを就活用に整える", outcomes: [
+      { p: 1, text: "研究成果を「強み」に言い換えられるようになった。", fx: { gakuchika: 8, gaku: 3, comu: 3 } } ] },
+    { label: "まずは休んで体力を回復する", outcomes: [
+      { p: 1, text: "充電完了。研究も就活も万全の状態に戻った。", fx: { tairyoku: 11 } } ] }
+  ] },
+  kg12: { q: "4月。面接が本格スタート。研究の話をどう伝える？", choices: [
+    { label: "専門外の人にも伝わる説明を練習する", outcomes: [
+      { p: 1, text: "面接官にもスッと伝わる説明ができるようになった。", fx: { comu: 9, gakuchika: 4, tairyoku: -3 } } ] },
+    { label: "研究の意義と成果を数字でまとめる", outcomes: [
+      { p: 1, text: "説得力が増した。話に芯が通った。", fx: { gakuchika: 7, gaku: 4, gyokai: 3 } } ] },
+    { label: "体調管理を最優先にする", outcomes: [
+      { p: 1, text: "万全のコンディション。顔色もいい。", fx: { tairyoku: 13 } } ] }
+  ] },
+  kg13: { q: "6月。いよいよ最終面接。修士論文の追い込みと並行だ…。", choices: [
+    { label: "想定問答をもう一度見直す", outcomes: [
+      { p: 1, text: "準備は万全。自信を持って臨めそうだ。", fx: { comu: 7, gakuchika: 4, gyokai: 3 } } ] },
+    { label: "当日に向けてしっかり睡眠をとる", outcomes: [
+      { p: 1, text: "ぐっすり眠れた。頭も心もスッキリ。", fx: { tairyoku: 13 } } ] },
+    { label: "研究室の仲間と気分転換する", outcomes: [
+      { p: 1, text: "笑って気持ちが軽くなった。なるようになる！", fx: { comu: 3, tairyoku: 7 } } ] }
   ] },
   k27: { q: "6月。いよいよ最終面接。ここまで来たら、あとはやりきるだけ。", choices: [
     { label: "想定問答をもう一度見直す", outcomes: [
@@ -870,30 +1267,93 @@ const GENERIC_EVENTS = [
   ] }
 ];
 
-// --- 1年4月〜4年6月（39ヶ月）の並び。kはその月のイベント、gは日常イベント ---
+// ===== 今月の重点（おまかせの選び方と、決断のない月の過ごし方が変わる） =====
+// w：おまかせが選択肢を選ぶときに重視する能力の重み / quiet：決断のない月の増減 / text：その月の文章
+const FOCUS = {
+  balance: { name: "バランス", w: { gaku: 1, comu: 1, gakuchika: 1, tairyoku: 0.7, money: 0.3, gyokai: 1.2 },
+    quiet: { gaku: 4, comu: 4, gakuchika: 4, gyokai: 4 }, text: "授業もバイトも遊びも、ほどよくこなした1ヶ月。" },
+  study: { name: "学業", w: { gaku: 2.5, comu: 0.6, gakuchika: 0.6, tairyoku: 0.5, money: 0.2, gyokai: 0.8 },
+    quiet: { gaku: 9 }, text: "図書館に通って、勉強に打ち込んだ1ヶ月。" },
+  relation: { name: "人間関係", w: { gaku: 0.6, comu: 2.5, gakuchika: 0.8, tairyoku: 0.5, money: 0.2, gyokai: 0.8 },
+    quiet: { comu: 9 }, text: "友達や先輩との時間を大切にした1ヶ月。" },
+  gakuchika: { name: "ガクチカ", w: { gaku: 0.6, comu: 0.8, gakuchika: 2.5, tairyoku: 0.5, money: 0.2, gyokai: 0.8 },
+    quiet: { gakuchika: 9 }, text: "活動に打ち込み、ガクチカになる経験を積んだ1ヶ月。" },
+  stamina: { name: "体力", w: { gaku: 0.6, comu: 0.6, gakuchika: 0.6, tairyoku: 2.5, money: 0.2, gyokai: 0.8 },
+    quiet: { tairyoku: 10 }, text: "規則正しい生活で、体調がぐっと整った1ヶ月。" },
+  money: { name: "お金", w: { gaku: 0.6, comu: 0.6, gakuchika: 0.6, tairyoku: 0.5, money: 2.5, gyokai: 0.8 },
+    quiet: { money: 10 }, text: "シフトをこなして、貯金がじわじわ増えた1ヶ月。" },
+  career: { name: "志望先対策", w: { gaku: 0.8, comu: 1, gakuchika: 1, tairyoku: 0.5, money: 0.2, gyokai: 3 },
+    quiet: { gyokai: 9, gakuchika: 3 }, text: "志望先のニュースや企業情報をこまめにチェックした1ヶ月。" }
+};
+
+// 決断のない月（時間が自動で流れる）
+const QUIET_EVENT = { quiet: true, q: "特別な出来事のない1ヶ月。今月の重点は「{focus}」。", choices: [] };
+function quietOutcome(st) { return { text: FOCUS[st.focus || "balance"].text, fx: FOCUS[st.focus || "balance"].quiet }; }
+
+// おまかせ：重点に沿って、いちばん良さそうな選択肢を選ぶ
+function autoPick(ev, st) {
+  const w = Object.assign({}, FOCUS[st.focus || "balance"].w);
+  if (st.tairyoku < 25) w.tairyoku += 3; // 体力が危ないときは休むことを優先
+  let best = 0, bv = -1e9;
+  ev.choices.forEach((c, i) => {
+    const v = c.outcomes.reduce((x, o) =>
+      x + o.p * (Object.keys(o.fx).reduce((s, k) => s + (w[k] || 0) * o.fx[k], 0) +
+                 (o.path === "grad" ? gradBonus(st) * 1.5 : 0) +
+                 (ECON[st.econ].shift < 0 ? (o.adapt || 0) * 2 : 0)), 0) + Math.random() * 0.5;
+    if (v > bv) { bv = v; best = i; }
+  });
+  return best;
+}
+
+// --- 1年4月〜4年6月（39ヶ月）の並び。kはその月のイベント、gは日常イベント、qは決断のない流れる月 ---
 const SCHEDULE_IDS = [
-  "k1", "k2", "g", "k3", "k4", "g", "k5", "g", "k6", "k7", "g", "k8",
-  "k9", "g", "k10", "g", "k11", "g", "k12", "k13", "g", "g", "k14", "k15",
-  "k16", "g", "k17", "g", "k18", "k19", "k20", "g", "k21", "k22", "k23", "k24",
+  "k1", "k2", "q", "k3", "k4", "g", "k5", "q", "k6", "k7", "g", "k8",
+  "k9", "q", "k10", "g", "k11", "q", "k12", "k13", "ke1", "q", "k14", "k15",
+  "k16", "ke2", "k17", "q", "k18", "k19", "k20", "kg0", "k21", "k22", "k23", "k24",
   "k25", "k26", "k27"
 ];
 
-// 月の表示（0 が 大学1年4月）
-function monthLabel(i) {
+// 大学院進学ルートの並び（分かれ道の月の後ろにつながる）。[イベント, 月の表示]
+const GRAD_PLAN = [
+  ["kg1", "大学3年 12月", "exam"], ["q", "大学3年 1月", "exam"], ["kg2", "大学3年 2月", "exam"], ["q", "大学3年 3月", "exam"],
+  ["kg3", "大学4年 4月", "exam"], ["kg4", "大学4年 6月", "exam"], ["kg5", "大学4年 8月", "exam"], ["kg6", "大学4年 9月", "exam"],
+  ["q", "大学4年 12月", "exam"],
+  ["kg7", "大学院1年 4月", "lab"], ["kg8", "大学院1年 6月", "lab"],
+  ["kgp1", "大学院1年 7月", "prep"], ["kg9", "大学院1年 8月", "prep"], ["kgp2", "大学院1年 9月", "prep"],
+  ["q", "大学院1年 10月", "prep"], ["kgp3", "大学院1年 11月", "prep"],
+  ["kg10", "大学院1年 12月", "main"], ["kg11", "大学院1年 3月", "main"],
+  ["kg12", "大学院2年 4月", "main"], ["kg13", "大学院2年 6月", "main"]
+];
+// 大学院ルートのフェーズ（画面の上に表示）
+const GRAD_PHASES = [
+  { key: "exam", name: "院試・進学準備", notice: "📚 院試・進学準備のフェーズ。合格をめざして研究室選びと勉強に集中します。" },
+  { key: "lab", name: "大学院生活", notice: "🎓 大学院生活のフェーズ。研究に打ち込みながら、力をつけていきます。" },
+  { key: "prep", name: "就活準備", notice: "🔔 就活準備フェーズに突入！大学院1年の夏から、自己分析・インターン・情報収集で本選考に備えます。" },
+  { key: "main", name: "本選考", notice: "🏁 本選考フェーズ！ここからエントリーと面接が本番です。" }
+];
+function buildGradSchedule() {
+  return GRAD_PLAN.map((x) => Object.assign({}, x[0] === "q" ? QUIET_EVENT : KEY_EVENTS[x[0]], { label: x[1], phase: x[2] }));
+}
+const GRAD_SUIT_FROM = 32 + GRAD_PLAN.findIndex((x) => x[0] === "kg10"); // 本選考からスーツ姿になる
+
+// 月の表示（0 が 大学1年4月）。sch を渡すと、大学院ルートの月の表示も使えます
+function monthLabel(i, sch) {
+  if (sch && sch[i] && sch[i].label) return sch[i].label;
   const y = Math.floor(i / 12) + 1;
   const m = ((i + 3) % 12) + 1;
   return "大学" + y + "年 " + m + "月";
 }
 
 // ゲームごとの月ごとのイベント一覧を作る
-function buildSchedule() {
+function buildSchedule(econ) {
   const pool = GENERIC_EVENTS.slice();
   for (let i = pool.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const t = pool[i]; pool[i] = pool[j]; pool[j] = t;
   }
   let g = 0;
-  return SCHEDULE_IDS.map((id) => id === "g" ? pool[g++] : KEY_EVENTS[id]);
+  return SCHEDULE_IDS.map((id) => id === "g" ? pool[g++] : id === "q" ? QUIET_EVENT
+    : id === "ke2" ? KEY_EVENTS["ke2_" + (econ || "normal")] : KEY_EVENTS[id]);
 }
 
 function clamp(v) { return Math.max(0, Math.min(100, v)); }
@@ -910,11 +1370,15 @@ function applyFx(st, fx, scale) {
   return delta;
 }
 
-// 入学時のステータスを作る（co は志望企業名。指定なしなら ""）
-function newState(univKey, famKey, majorKey, indKey, co, jobKey) {
+// 入学時のステータスを作る（cos は受ける会社の一覧で [{name, ind}] の形。指定なしなら []）
+function newState(univKey, famKey, majorKey, indKey, cos, jobKey, homeKey, campusKey) {
   const st = {
-    univ: univKey, family: famKey, major: majorKey, ind: indKey, co: co || "", job: jobKey,
+    home: homeKey || pickRegion(), campus: campusKey || pickRegion(),
+    univ: univKey, family: famKey, major: majorKey, ind: indKey, cos: (cos || []).slice(), job: jobKey,
     pivots: 0,
+    econ: pickEcon(), adapt: 0, econKnown: false,   // 就活の年の景気／景気への備え／景気を知っているか
+    path: "job",   // 卒業後の進路：job（就職）／grad（大学院進学）
+    focus: "balance",
     gaku: UNIV[univKey].gaku,
     comu: 35,
     gakuchika: 20,
@@ -923,11 +1387,18 @@ function newState(univKey, famKey, majorKey, indKey, co, jobKey) {
     gyokai: 10
   };
   applyFx(st, MAJORS[majorKey].start);
+  applyFx(st, FAMILY[famKey].start);
+  applyFx(st, livingFx(st));
+  applyFx(st, { gyokai: REGIONS[st.home].loc }); // 出身地が都市部だと、業界の情報に触れやすい
   return st;
 }
 
 // 確率に従って結果を1つ選ぶ
-function pickOutcome(choice) {
+function pickOutcome(choice, st) {
+  if (choice.exam && st) { // 院試：学力が高いほど合格しやすい
+    const pass = Math.random() < Math.max(0.4, Math.min(0.97, 0.3 + st.gaku * 0.0085));
+    return choice.outcomes.find((o) => o.pass === pass) || choice.outcomes[0];
+  }
   let r = Math.random();
   for (const o of choice.outcomes) {
     if (r < o.p) return o;
@@ -950,27 +1421,70 @@ function jobFitBonus(st) { return (jobStatScore(st) - 45) * 0.15 + jobMajorBonus
 // 就活力（運を足す前の実力）
 function baseScore(st) {
   let b = 0.28 * st.gaku + 0.22 * st.comu + 0.24 * st.gakuchika +
-          0.08 * st.tairyoku + 0.04 * st.money + UNIV[st.univ].bonus +
+          0.08 * st.tairyoku + 0.04 * st.money + UNIV[st.univ].bonus + REGIONS[st.campus].loc +
           0.12 * st.gyokai + majorFit(st) + jobFitBonus(st);
+  b += econTerm(st, st.ind); // 景気による追い風・向かい風
+  if (st.path === "grad") b += gradBonus(st); // 大学院ルートの有利・不利
   if (st.tairyoku <= 15) b -= 8; // 体力が尽きていると面接で不利
   return b;
 }
 
+// 選考1回分の「運」
+function luck() { return (Math.random() + Math.random() + Math.random() - 1.5) * 26; }
+
 // 選考1回分の抽選（実力＋運）。しきい値を変えると出やすさが変わります
-const TH_UR = 88, TH_SR = 74, TH_R = 58;
+// 標準的なプレイで、UR 5% / SR 19% / R 71% / N 5% になるように合わせています
+const TH_UR = 95.2, TH_SR = 79.8, TH_R = 40.8;
 function rollOutcome(st) {
-  const luck = (Math.random() + Math.random() + Math.random() - 1.5) * 26;
-  const s = baseScore(st) + luck;
+  const s = baseScore(st) + luck();
   if (s >= TH_UR) return "UR";
   if (s >= TH_SR) return "SR";
   if (s >= TH_R) return "R";
   return "N";
 }
 
-// 同じ人生で n 回就活する
+// ===== 複数社受験 =====
+const MAX_COMPANIES = 5;   // 受けられる会社の数
+const SPREAD_PEN = 1.0;    // 受ける会社が1社増えるごとに、各社の対策が薄くなる点数
+const HARD_BASE = 1.5;     // 業界の入りにくさの平均（これを引いて、会社を指定しても全体の出やすさが変わらないようにしている）
+// 業界ごとの入りにくさ（ゲーム用の目安。高いほど内定を取りにくい）
+const IND_HARD = { auto: 0, elec: 0, it: 1, media: 4, trade: 3, finance: 2, food: 1, chem: 0, build: 0, infra: 1, retail: -2, gov: 2, foreign: 3 };
+
+// その会社に対する実力（志望業界以外の会社は、業界理解が半分だけ効く）
+function companyScore(st, c) {
+  const gy = 0.12 * st.gyokai;
+  const base = baseScore(st) - gy - majorFit(st) - econTerm(st, st.ind) + econTerm(st, c.ind);
+  return base + gy * (c.ind === st.ind ? 1 : 0.5) + (MAJORS[st.major].fit[c.ind] || 0);
+}
+
+// 就活の選考を一通り行う。会社を指定していれば1社ずつ判定、なければ従来のガチャ
+function selection(st) {
+  const n = st.cos.length;
+  if (n === 0) return { rank: rollOutcome(st), results: [], offers: [] };
+  const pen = (n - 1) * SPREAD_PEN;
+  const results = st.cos.map((c) => ({
+    name: c.name, ind: c.ind,
+    ok: companyScore(st, c) + luck() - pen >= TH_UR + (IND_HARD[c.ind] || 0) - HARD_BASE
+  }));
+  const offers = results.filter((r) => r.ok);
+  let rank;
+  if (offers.length) {
+    rank = "UR";
+  } else {
+    rank = rollOutcome(st);           // 全部落ちても、併願先から内定が出るかも
+    if (rank === "UR") rank = "SR";
+  }
+  return { rank: rank, results: results, offers: offers };
+}
+
+// 同じ人生で n 回就活する（first は第一志望に内定した回数）
 function simulate(st, n) {
-  const c = { UR: 0, SR: 0, R: 0, N: 0 };
-  for (let i = 0; i < n; i++) c[rollOutcome(st)]++;
+  const c = { UR: 0, SR: 0, R: 0, N: 0, first: 0 };
+  for (let i = 0; i < n; i++) {
+    const sel = selection(st);
+    c[sel.rank]++;
+    if (sel.results.length && sel.results[0].ok) c.first++;
+  }
   return c;
 }
 
@@ -985,14 +1499,37 @@ function placement(st) {
 
 // ===== 結果の中身を作る =====
 const DISCLAIMER = "<br><small>※ゲーム上の演出です。実際の採用とは関係ありません。</small>";
-function buildResult(st, rank) {
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+
+// 受けた会社ごとの結果一覧
+function resultList(sel) {
+  if (!sel.results.length) return "";
+  return '<div class="co-rows">' + sel.results.map((r, i) =>
+    '<div class="co-row ' + (r.ok ? "ok" : "ng") + '">' + (r.ok ? "◎ 内定" : "× 不採用") + "：" +
+    esc(r.name) + (i === 0 ? "（第一志望）" : "") + "</div>"
+  ).join("") + "</div>";
+}
+
+function buildResult(st, sel) {
+  const rank = sel.rank;
   const ind = INDUSTRIES[st.ind];
+  const n = sel.results.length;
   let res;
   if (rank === "UR") {
-    const name = st.co || ind.names[Math.floor(Math.random() * ind.names.length)];
+    let name, offerInd, head = "";
+    if (n) {
+      const o = sel.offers[0];                 // 内定が複数あれば、志望順で一番上の会社に入社
+      const pos = sel.results.indexOf(o);
+      name = o.name;
+      offerInd = INDUSTRIES[o.ind];
+      head = (pos === 0 ? "<b>第一志望に内定！</b><br>" : "<b>第" + (pos + 1) + "志望の会社から内定！</b><br>") +
+             (sel.offers.length > 1 ? "他にも" + (sel.offers.length - 1) + "社から内定をもらいました。入社先は志望順で選びました。<br>" : "");
+    } else {
+      offerInd = ind;
+      name = ind.names[Math.floor(Math.random() * ind.names.length)];
+    }
     res = { rank: "UR", label: "ウルトラレア", title: name + " 内定",
-      text: "<b>【" + ind.label + "】</b><br>" + (st.co ? "<b>第一志望に内定！</b><br>" : "") +
-            ind.urText + "<br>" + placement(st) };
+      text: "<b>【" + offerInd.label + "】</b><br>" + head + offerInd.urText + "<br>" + placement(st) };
   } else if (rank === "SR") {
     res = { rank: "SR", label: "スーパーレア", title: ind.mid + " 内定",
       text: (ind.srText || "完全週休2日制のホワイト企業。<br>安定した毎日が待っています。") + "<br>" + placement(st) };
@@ -1003,27 +1540,132 @@ function buildResult(st, rank) {
     res = { rank: "N", label: "ノーマル", title: "お祈りメール（不採用）",
       text: "慎重に選考を重ねました結果、誠に残念ながら今回はご期待に沿いかねる結果となりました。<br>末筆ながら、あなたのご健闘とご活躍をお祈り申し上げます。" };
   }
-  if (st.co && rank !== "UR") {
-    res.text += "<br><small>第一志望の" + st.co + "は、今回はご縁がありませんでした。</small>";
+  if (n && rank !== "UR") {
+    res.text += "<br><small>受験した" + n + "社は" +
+      (rank === "N" ? "すべて不採用でした。" : "不採用でしたが、併願していた企業から内定をもらいました。") + "</small>";
   }
-  if (rank === "UR" || st.co) res.text += DISCLAIMER;
+  res.text += resultList(sel);
+  if (rank === "UR" || n) res.text += DISCLAIMER;
   return res;
+}
+// ===== ドット絵のキャラクター（16×20マス。オリジナルの汎用デザイン） =====
+const SPRITE_W = 16, SPRITE_H = 20;
+const HAIRS = ["#2b2118", "#5b3a22", "#8a5a2b", "#1c2433"];
+const SKINS = ["#f6d5b8", "#e8b992", "#c98f66"];
+const SUIT_FROM = 32; // 大学3年12月ごろから、リクルートスーツ姿になる
+
+// o: { mood: normal|happy|sad|tired, outfit: casual|suit, top, hair, skin, props: ["star","cert","cloud"] }
+function buildSprite(o) {
+  const g = [];
+  for (let y = 0; y < SPRITE_H; y++) g.push(new Array(SPRITE_W).fill(null));
+  const px = (x, y, c) => { if (x >= 0 && x < SPRITE_W && y >= 0 && y < SPRITE_H) g[y][x] = c; };
+  const rect = (x, y, w, h, c) => { for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) px(x + i, y + j, c); };
+  const INK = "#2a2a3a", WHITE = "#ffffff", NAVY = "#1b2a49", GOLD = "#e0b500", MOUTH = "#b5524a",
+        BLUE = "#6db3f2", PINK = "#f4a3a3", RED = "#c0392b", GRAY = "#9aa3b5";
+  const props = o.props || [];
+  const has = (p) => props.indexOf(p) >= 0;
+  const star = (cx, cy) => { px(cx, cy, GOLD); px(cx - 1, cy, GOLD); px(cx + 1, cy, GOLD); px(cx, cy - 1, GOLD); px(cx, cy + 1, GOLD); };
+
+  // 背景の飾り（キャラクターの後ろ）
+  if (has("star")) { star(1, 3); star(14, 2); px(14, 7, GOLD); px(1, 8, GOLD); }
+  if (has("cloud")) { rect(1, 0, 4, 1, GRAY); rect(0, 1, 5, 1, GRAY); px(1, 3, BLUE); px(2, 5, BLUE); px(0, 6, BLUE); }
+
+  // 体
+  const suit = o.outfit === "suit";
+  const top = suit ? NAVY : o.top;
+  const pants = suit ? NAVY : "#4a5a73";
+  rect(5, 16, 2, 3, pants); rect(9, 16, 2, 3, pants);   // 脚
+  rect(5, 19, 2, 1, INK); rect(9, 19, 2, 1, INK);         // 靴
+  rect(5, 11, 6, 5, top);                                  // 胴
+  rect(4, 11, 1, 4, top); rect(11, 11, 1, 4, top);         // 腕
+  px(4, 15, o.skin); px(11, 15, o.skin);                   // 手
+  rect(7, 10, 2, 1, o.skin);                               // 首
+  if (suit) { rect(6, 11, 4, 1, WHITE); rect(7, 12, 2, 3, RED); } // シャツとネクタイ
+
+  // 頭
+  rect(4, 3, 8, 7, o.skin);                                // 顔
+  rect(4, 2, 8, 2, o.hair);                                // 髪（上）
+  rect(3, 3, 1, 5, o.hair); rect(12, 3, 1, 5, o.hair);     // 髪（横）
+  rect(4, 4, 2, 1, o.hair); rect(10, 4, 2, 1, o.hair);     // 前髪
+
+  // 表情
+  const mood = o.mood || "normal";
+  if (mood === "tired") {
+    rect(5, 6, 2, 1, INK); rect(9, 6, 2, 1, INK);          // 半目
+    rect(7, 8, 2, 1, GRAY);
+    px(13, 5, BLUE); px(13, 6, BLUE);                      // 汗
+  } else {
+    px(6, 6, INK); px(9, 6, INK);                          // 目
+    if (mood === "happy") {
+      px(6, 8, MOUTH); px(9, 8, MOUTH); rect(7, 9, 2, 1, MOUTH);   // 笑顔
+      px(5, 7, PINK); px(10, 7, PINK);
+    } else if (mood === "sad") {
+      rect(7, 8, 2, 1, MOUTH); px(6, 9, MOUTH); px(9, 9, MOUTH);   // への字口
+      px(10, 7, BLUE); px(10, 8, BLUE);                              // 涙
+    } else {
+      rect(7, 8, 2, 1, MOUTH);
+    }
+  }
+
+  // 内定通知を持っている
+  if (has("cert")) {
+    rect(12, 12, 3, 4, WHITE);
+    rect(13, 13, 2, 1, GRAY); px(13, 14, GRAY);
+    px(14, 15, GOLD);
+  }
+  return g;
+}
+
+function spriteSvg(o) {
+  const g = buildSprite(o);
+  let r = "";
+  for (let y = 0; y < SPRITE_H; y++) {
+    let x = 0;
+    while (x < SPRITE_W) {
+      const c = g[y][x];
+      if (!c) { x++; continue; }
+      let w = 1;
+      while (x + w < SPRITE_W && g[y][x + w] === c) w++;
+      r += '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="1" fill="' + c + '"/>';
+      x += w;
+    }
+  }
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + SPRITE_W + " " + SPRITE_H +
+         '" shape-rendering="crispEdges" role="img" aria-label="キャラクター">' + r + "</svg>";
+}
+
+// キャラクターの表情（体力が少ないと疲れ顔。選んだ月は、その月の良し悪しで変わる）
+function avatarMood(st, delta, picked) {
+  if (st.tairyoku <= 20) return "tired";
+  if (!picked) return "normal";
+  const d = delta || {};
+  const net = (d.gaku || 0) + (d.comu || 0) + (d.gakuchika || 0) + (d.tairyoku || 0) + (d.gyokai || 0);
+  return net >= 3 ? "happy" : net < 0 ? "sad" : "normal";
+}
+const AVATAR_LINES = {
+  tired: ["もう限界かも…休まなきゃ。", "体力が底をついてきた…。"],
+  happy: ["いい感じ！", "手応えあり！", "やったね！"],
+  sad: ["うーん…ちょっとキツい。", "ドンマイ、自分…。", "次はがんばろう…。"],
+  normal: ["ふつうの1ヶ月かな。", "まあ、悪くない。", "コツコツいこう。"],
+  ask: ["さて、今月はどうしよう？", "どうしようかな…。", "うーん、迷う！"]
+};
+function avatarLine(mood, picked, seed) {
+  const list = (!picked && mood !== "tired") ? AVATAR_LINES.ask : AVATAR_LINES[mood];
+  return list[Math.abs(seed) % list.length];
 }
 // LOGIC-END
 
 // ===== 画面まわり =====
 const $ = (id) => document.getElementById(id);
-const screens = ["title", "setup", "event", "gacha", "result"];
+const screens = ["title", "setup", "spec", "event", "gacha", "result"];
 function showScreen(name) {
   screens.forEach((s) => $("screen-" + s).classList.toggle("active", s === name));
   window.scrollTo(0, 0);
 }
-function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
 
 const STAGES = ["エントリーシート提出", "書類選考中…", "Webテスト受験中…", "一次面接中…", "最終面接中…", "結果を待っています…"];
 const STAGE_MS = 550;
 const MAX_CHANGES = 3;  // 志望を変更できる回数
-const MAX_UNDOS = 3;    // 選び直しできる回数
 
 let state = null;       // 今のステータス
 let schedule = [];      // 今回の月ごとのイベント
@@ -1031,10 +1673,25 @@ let eventIndex = 0;     // 何ヶ月目か
 let currentResult = null;
 let lastSim = null;
 let changesLeft = MAX_CHANGES;
-let undosLeft = MAX_UNDOS;
-let snapshot = null;    // 選ぶ前の能力値（選び直し用）
+let snapshot = null;    // その月の選択前の能力値（選び直し用）
+let pickedIndex = -1;   // その月に今選んでいる選択肢（-1は未選択）
+let pickedOutcome = null;
+let pickedDelta = {};
 let notice = "";
-const selected = { univ: "random", family: "random" };
+let setupCos = [];      // 入学手続きで選んだ会社
+let edCos = [];         // 志望変更の画面で選んでいる会社
+
+// 進行（一時停止・速度・おまかせ）
+let paused = false;
+let speed = 1;
+let autopilot = false;
+let skipping = false;   // 「次の決断まで進む」の最中
+let autoTimer = null;
+let inEvent = false;
+let editorOpen = false;
+let focusKey = "balance";
+let tones = [];         // 終わった月の良し悪し（人生マップ用）
+let logEntries = [];    // 人生の記録
 
 function renderStats(el, st) {
   el.innerHTML = STAT_KEYS.map((k) =>
@@ -1044,8 +1701,12 @@ function renderStats(el, st) {
 }
 
 function profileText(st) {
-  return esc(UNIV[st.univ].name + "・" + MAJORS[st.major].name) + "<br>志望：" +
-    esc(INDUSTRIES[st.ind].label + "／" + JOBS[st.job].name + (st.co ? "／" + st.co : ""));
+  const cos = st.cos.length
+    ? "／" + esc(st.cos[0].name) + (st.cos.length > 1 ? " 他" + (st.cos.length - 1) + "社" : "")
+    : "";
+  return esc(REGIONS[st.campus].name + "の" + UNIV[st.univ].name + "・" + MAJORS[st.major].name) + "<br>志望：" +
+    esc(INDUSTRIES[st.ind].label + "／" + JOBS[st.job].name) + cos +
+    (st.path === "grad" ? "<br>進路：大学院に進学" : "");
 }
 
 // ----- 入学手続き -----
@@ -1058,8 +1719,6 @@ function setupChips(groupId, key) {
     box.querySelectorAll(".chip").forEach((c) => c.classList.toggle("selected", c === btn));
   });
 }
-setupChips("chips-univ", "univ");
-setupChips("chips-family", "family");
 
 function fillSelect(sel, items) {
   sel.innerHTML = items.map((it) => '<option value="' + esc(it[0]) + '">' + esc(it[1]) + "</option>").join("");
@@ -1070,22 +1729,57 @@ const JOB_ITEMS = Object.keys(JOBS).map((k) => [k, JOBS[k].name]);
 fillSelect($("sel-major"), RANDOM_OPT.concat(Object.keys(MAJORS).map((k) => [k, MAJORS[k].name])));
 fillSelect($("sel-ind"), RANDOM_OPT.concat(IND_ITEMS));
 fillSelect($("sel-job"), RANDOM_OPT.concat(JOB_ITEMS));
+fillSelect($("sel-focus"), Object.keys(FOCUS).map((k) => [k, FOCUS[k].name]));
 
-// 業界を選んだら、その業界の企業リストを出す（入学手続き・志望変更の両方で使う）
-function refreshCompany(indId, coId) {
-  const ind = $(indId).value;
-  const sel = $(coId);
-  if (!INDUSTRIES[ind]) {
-    fillSelect(sel, [["", "（業界を選ぶと指定できます）"]]);
-    sel.disabled = true;
-    return;
+// 受ける会社を複数選ぶ部品（入学手続き=su、志望変更=ed の2か所で使う）
+function makePicker(p, getList, setList) {
+  const indSel = $(p + "-pick-ind");
+  const coSel = $(p + "-pick-co");
+  const addBtn = $(p + "-add");
+  const box = $(p + "-list");
+  fillSelect(indSel, IND_ITEMS);
+  function fillCo() {
+    const ind = INDUSTRIES[indSel.value];
+    fillSelect(coSel, [["", "企業を選ぶ"]].concat(ind ? ind.names.map((n) => [n, n]) : []));
   }
-  sel.disabled = false;
-  fillSelect(sel, [["", "業界内でおまかせ"]].concat(INDUSTRIES[ind].names.map((n) => [n, n])));
+  function render() {
+    const list = getList();
+    box.innerHTML = list.length
+      ? list.map((c, i) => '<span class="co-chip">' + (i + 1) + ". " + esc(c.name) +
+          '<button type="button" data-i="' + i + '" aria-label="削除">×</button></span>').join("")
+      : '<span class="small-note">（未指定の場合は、志望業界の企業からくじで決まります）</span>';
+    addBtn.disabled = list.length >= MAX_COMPANIES;
+  }
+  indSel.addEventListener("change", fillCo);
+  addBtn.addEventListener("click", () => {
+    const name = coSel.value;
+    const list = getList();
+    if (!name || list.length >= MAX_COMPANIES) return;
+    if (list.some((c) => c.name === name && c.ind === indSel.value)) return;
+    setList(list.concat([{ name: name, ind: indSel.value }]));
+    render();
+  });
+  box.addEventListener("click", (e) => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    const list = getList().slice();
+    list.splice(Number(b.dataset.i), 1);
+    setList(list);
+    render();
+  });
+  fillCo();
+  render();
+  return { render: render, setIndustry: (k) => { if (INDUSTRIES[k]) { indSel.value = k; fillCo(); } } };
 }
-$("sel-ind").addEventListener("change", () => refreshCompany("sel-ind", "sel-co"));
-refreshCompany("sel-ind", "sel-co");
+const suPicker = makePicker("su", () => setupCos, (l) => { setupCos = l; });
+const edPicker = makePicker("ed", () => edCos, (l) => { edCos = l; });
+$("sel-ind").addEventListener("change", () => suPicker.setIndustry($("sel-ind").value));
 
+let look = { hair: HAIRS[0], skin: SKINS[0], top: "#e07a5f" };
+function setAvatar(id, o) {
+  const el = $(id);
+  if (el) el.innerHTML = spriteSvg(Object.assign({ hair: look.hair, skin: look.skin, top: look.top }, o));
+}
 function pickRandomKey(obj) {
   const keys = Object.keys(obj);
   return keys[Math.floor(Math.random() * keys.length)];
@@ -1093,136 +1787,377 @@ function pickRandomKey(obj) {
 function resolveKey(v, obj) { return (v && obj[v]) ? v : pickRandomKey(obj); }
 
 function startLife() {
-  const u = resolveKey(selected.univ, UNIV);
-  const f = resolveKey(selected.family, FAMILY);
+  const u = pickRandomKey(UNIV); // 大学は常に完全ランダム
+  const f = pickRandomKey(FAMILY); // 家庭環境も完全ランダム
   const m = resolveKey($("sel-major").value, MAJORS);
-  const indSel = $("sel-ind").value;
-  const ind = resolveKey(indSel, INDUSTRIES);
-  const co = INDUSTRIES[indSel] ? ($("sel-co").value || "") : "";
+  const ind = resolveKey($("sel-ind").value, INDUSTRIES);
   const j = resolveKey($("sel-job").value, JOBS);
-  state = newState(u, f, m, ind, co, j);
-  schedule = buildSchedule();
+  state = newState(u, f, m, ind, setupCos, j);
+  look = {
+    hair: HAIRS[Math.floor(Math.random() * HAIRS.length)],
+    skin: SKINS[Math.floor(Math.random() * SKINS.length)],
+    top: ["#e07a5f", "#3d8361", "#6a7fdb", "#d4a017", "#8e6bbf"][Math.floor(Math.random() * 5)]
+  };
+  showSpec();
+}
+
+// 生成されたスペックを、ゲーム開始の直前に見せる
+function showSpec() {
+  const st = state;
+  const u = UNIV[st.univ], hm = REGIONS[st.home], cp = REGIONS[st.campus];
+  setAvatar("spec-avatar", { mood: "normal", outfit: "casual" });
+  $("spec-univ").innerHTML = esc(cp.name + "の" + u.name) + "<small>に入学します</small>";
+  const co = st.cos.length ? st.cos.map((c) => c.name).join("、") : "指定なし";
+  const rows = [
+    ["大学", cp.name + "（" + cp.area + "）／" + u.name],
+    ["出身地", hm.name + "（" + hm.area + "）"],
+    ["暮らし", st.home === st.campus ? "実家から通学" : "一人暮らし（実家は" + hm.name + "）"],
+    ["家庭環境", FAMILY[st.family].name],
+    ["専攻", MAJORS[st.major].name],
+    ["志望業界", INDUSTRIES[st.ind].label],
+    ["志望職種", JOBS[st.job].name],
+    ["志望企業", co]
+  ];
+  $("spec-list").innerHTML = rows.map((r) => "<div><dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd></div>").join("");
+  renderStats($("spec-stats"), st);
+  const t = [];
+  const lc = REGIONS[st.campus].loc;
+  t.push(lc >= 1 ? ['up', "大学は都市部。インターンや説明会に参加しやすく、就活で少し有利"]
+       : lc === 0 ? ['', "大学は大都市圏の外縁。就活の機会はふつう"]
+       : ['down', "大学は地方。説明会・面接の交通費がかさみ、就活で少し不利"]);
+  t.push(st.home === st.campus ? ['up', "実家通いで生活費が安く、体力にも余裕あり（お金・体力＋）"]
+       : ['', "一人暮らしで自立。生活費はかかるがコミュ力・ガクチカは少し伸びる"]);
+  const hl = REGIONS[st.home].loc;
+  if (hl >= 1) t.push(['up', "出身地は都市部。業界の情報に触れる機会が多く、業界理解がやや高い"]);
+  else if (hl <= -2) t.push(['down', "出身地は地方。業界の情報は自分で取りにいく必要がある"]);
+  t.push(['', FAMILY[st.family].note]);
+  t.push(['', "💡 就活のころの景気は未知数。好況か不況かは、運しだいです（途中で分かります）"]);
+  t.push(['', "就活本番（大学3年12月）に、交通費として約" + REGIONS[st.campus].trip + "のお金を使います"]);
+  $("spec-traits").innerHTML = t.map((x) => '<li' + (x[0] ? ' class="' + x[0] + '"' : "") + ">" + esc(x[1]) + "</li>").join("");
+  showScreen("spec");
+}
+
+function beginLife() {
+  const u = state.univ;
+  state.focus = focusKey;
+  schedule = buildSchedule(state.econ);
   eventIndex = 0;
   changesLeft = MAX_CHANGES;
-  undosLeft = MAX_UNDOS;
-  snapshot = null;
-  notice = "";
   lastSim = null;
+  logEntries = [];
+  tones = [];
+  skipping = false;
+  notice = "🎓 入学！あなたは「" + REGIONS[state.campus].name + "の" + UNIV[u].name + "」に入学することになりました。";
   showEvent();
+}
+
+// ----- 人生の記録・人生マップ -----
+function renderLog(el) {
+  if (!logEntries.length) { el.innerHTML = '<div class="log-empty">まだ記録はありません。</div>'; return; }
+  el.innerHTML = logEntries.map((e, i) => ({ e: e, i: i })).reverse().map((x) => {
+    const e = x.e;
+    const chips = Object.keys(e.delta).filter((k) => e.delta[k] !== 0)
+      .map((k) => STAT_NAMES[k] + (e.delta[k] > 0 ? "+" : "") + e.delta[k]).join(" ");
+    return '<div class="log-row' + (e.star ? " starred" : "") + '" data-i="' + x.i + '"><span class="star">' +
+      (e.star ? "★" : "☆") + "</span><div><b>" + esc(e.label) + "</b>　" + esc(e.head) + "<br>" + esc(e.text) +
+      (chips ? '<br><span class="log-d">' + esc(chips) + "</span>" : "") + "</div></div>";
+  }).join("");
+}
+function renderLogs() { renderLog($("ev-log")); renderLog($("res-log")); }
+function setupLog(id) {
+  $(id).addEventListener("click", (e) => {
+    const row = e.target.closest(".log-row");
+    if (!row) return;
+    const en = logEntries[Number(row.dataset.i)];
+    if (!en) return;
+    en.star = !en.star;
+    renderLogs();
+  });
+}
+setupLog("ev-log");
+setupLog("res-log");
+
+function renderMap() {
+  let h = "";
+  const rows = Math.max(4, Math.ceil(schedule.length / 12));
+  for (let y = 0; y < rows; y++) {
+    const lab = monthLabel(y * 12, schedule).replace(/^大学院/, "院").replace(/^大学/, "").replace(/ .*$/, "");
+    h += '<span class="map-y">' + (y * 12 < schedule.length ? lab : "") + "</span>";
+    for (let m = 0; m < 12; m++) {
+      const i = y * 12 + m;
+      if (i >= schedule.length) { h += '<i class="cell void"></i>'; continue; }
+      const cls = i < eventIndex ? "cell " + (tones[i] || "flat") : i === eventIndex ? "cell now" : "cell";
+      h += '<i class="' + cls + '" title="' + monthLabel(i, schedule) + '"></i>';
+    }
+  }
+  $("ev-map").innerHTML = h;
 }
 
 // ----- 1ヶ月ごとのイベント -----
 function showEvent() {
+  snapshot = null;
+  pickedIndex = -1;
+  pickedOutcome = null;
+  pickedDelta = {};
+  inEvent = true;
+  editorOpen = false;
   const ev = schedule[eventIndex];
+  if (!ev.quiet) skipping = false;
+  state.focus = focusKey;
+  if (ev.reveal) state.econKnown = true;
+  const prev = eventIndex > 0 ? schedule[eventIndex - 1] : null;
+  if (state.path === "grad" && ev.phase && (!prev || prev.phase !== ev.phase)) {
+    notice = GRAD_PHASES.find((p) => p.key === ev.phase).notice;
+  }
+  if (ev.revealNotice) {
+      notice = (notice ? notice + "\n" : "") + ECON[state.econ].icon + " 2年後の景気は「" + ECON[state.econ].name + "」。" + ECON[state.econ].note;
+  }
+  if (ev.mainStart) {
+    notice = (notice ? notice + "\n" : "") + ECON[state.econ].icon + " " + ECON[state.econ].main;
+  }
+  if (ev.trip) {
+    const cost = REGIONS[state.campus].trip;
+    const d = applyFx(state, { money: -cost });
+    notice = (notice ? notice + "\n" : "") + "🚃 就活本番！説明会や面接の交通費で、お金 " + (d.money || 0) + "。";
+  }
   showScreen("event");
-  $("ev-when").textContent = monthLabel(eventIndex);
-  $("ev-step").textContent = (eventIndex + 1) + " / " + schedule.length + " ヶ月";
-  $("ev-dots").innerHTML = schedule.map((_, i) =>
-    '<i class="' + (i < eventIndex ? "done" : i === eventIndex ? "now" : "") + '"></i>').join("");
+  if (ev.quiet) applyQuiet();
+  renderMonth();
+}
+
+// 決断のない「流れる月」：重点に沿って自動で過ぎていく
+function applyQuiet() {
+  snapshot = {};
+  STAT_KEYS.forEach((k) => { snapshot[k] = state[k]; });
+  pickedOutcome = quietOutcome(state);
+  pickedIndex = 0;
+  pickedDelta = applyFx(state, pickedOutcome.fx, FX_SCALE);
+}
+
+function renderEcon() {
+  const el = $("ev-econ");
+  if (!state.econKnown) { el.hidden = true; el.textContent = ""; return; }
+  const e = ECON[state.econ];
+  el.className = "econ-bar " + state.econ;
+  el.textContent = e.icon + " 就活の年の景気：" + e.name + (state.adapt > 0 ? "（備え " + state.adapt + "）" : "");
+  el.hidden = false;
+}
+function renderPhase() {
+  const el = $("ev-phase");
+  const cur = schedule[eventIndex].phase;
+  if (state.path !== "grad" || !cur) { el.hidden = true; el.innerHTML = ""; return; }
+  const ci = GRAD_PHASES.findIndex((p) => p.key === cur);
+  el.innerHTML = GRAD_PHASES.map((p, i) =>
+    '<span class="' + (i < ci ? "done" : i === ci ? "on" : "") + '">' + p.name + "</span>").join("");
+  el.hidden = false;
+}
+
+// 画面を今の状態で描き直す（選択を押し直したり、志望を変えたりしたときにも使う）
+function renderMonth() {
+  const ev = schedule[eventIndex];
+  $("ev-when").textContent = monthLabel(eventIndex, schedule);
+  $("ev-step").textContent = (eventIndex + 1) + " / " + schedule.length + (state.path === "grad" ? " ステップ" : " ヶ月");
+  renderMap();
+  renderPhase();
+  renderEcon();
   $("ev-profile").innerHTML = profileText(state);
+  {
+    const picked = pickedIndex >= 0;
+    const mood = avatarMood(state, pickedDelta, picked);
+    setAvatar("ev-avatar", { mood: mood, outfit: eventIndex >= (state.path === "grad" ? GRAD_SUIT_FROM : SUIT_FROM) ? "suit" : "casual" });
+    $("ev-bubble").textContent = avatarLine(mood, picked, eventIndex * 7 + pickedIndex + 1);
+  }
   $("ev-notice").textContent = notice;
   $("ev-notice").hidden = !notice;
   $("btn-edit").textContent = "志望を変更（残り" + changesLeft + "回）";
   $("btn-edit").disabled = changesLeft <= 0;
-  $("btn-edit").hidden = false;
-  $("btn-undo").hidden = true;
   $("ed-panel").hidden = true;
+  editorOpen = false;
   renderStats($("ev-stats"), state);
   $("ev-question").textContent = tpl(ev.q, state);
-  $("ev-outcome").hidden = true;
-  $("btn-next").hidden = true;
+  renderLogs();
 
   const box = $("ev-choices");
   box.innerHTML = "";
   ev.choices.forEach((c, i) => {
     const b = document.createElement("button");
-    b.className = "choice";
+    b.className = "choice" + (i === pickedIndex ? " picked" : "");
     b.textContent = tpl(c.label, state);
     b.addEventListener("click", () => choose(i));
     box.appendChild(b);
   });
-}
 
-function choose(i) {
-  const ev = schedule[eventIndex];
-  snapshot = {};
-  STAT_KEYS.forEach((k) => { snapshot[k] = state[k]; });
-  const outcome = pickOutcome(ev.choices[i]);
-  const delta = applyFx(state, outcome.fx, FX_SCALE);
-
-  document.querySelectorAll("#ev-choices .choice").forEach((b, idx) => {
-    b.classList.add(idx === i ? "picked" : "dim");
-  });
-
-  const chips = Object.keys(delta).filter((k) => delta[k] !== 0).map((k) => {
-    const v = delta[k];
-    return '<span class="d ' + (v > 0 ? "plus" : "minus") + '">' + STAT_NAMES[k] + " " + (v > 0 ? "+" : "") + v + "</span>";
-  }).join("");
   const out = $("ev-outcome");
-  out.innerHTML = '<div class="outcome">' + esc(tpl(outcome.text, state)) + '<div class="deltas">' + chips + "</div></div>";
-  out.hidden = false;
-  renderStats($("ev-stats"), state);
-
-  $("ed-panel").hidden = true;
-  $("btn-edit").hidden = true;
-  $("btn-undo").textContent = "選び直す（残り" + undosLeft + "回）";
-  $("btn-undo").disabled = undosLeft <= 0;
-  $("btn-undo").hidden = false;
-
-  const last = eventIndex === schedule.length - 1;
-  $("btn-next").textContent = last ? "就活本番へ進む" : "次の月へ";
-  $("btn-next").hidden = false;
+  if (pickedIndex >= 0) {
+    const chips = Object.keys(pickedDelta).filter((k) => pickedDelta[k] !== 0).map((k) => {
+      const v = pickedDelta[k];
+      return '<span class="d ' + (v > 0 ? "plus" : "minus") + '">' + STAT_NAMES[k] + " " + (v > 0 ? "+" : "") + v + "</span>";
+    }).join("");
+    out.innerHTML = '<div class="outcome">' + esc(tpl(pickedOutcome.text, state)) +
+      '<div class="deltas">' + chips + "</div></div>" +
+      (ev.quiet ? "" : '<p class="small-note" style="margin-top:6px">※別の選択肢を押すと、選び直せます（次の月に進むまで何度でもOK）。</p>');
+    out.hidden = false;
+    const last = eventIndex === schedule.length - 1;
+    $("btn-next").textContent = last ? (ev.quiet ? "就活本番へ進む" : "この選択で就活本番へ進む") : (ev.quiet ? "次の月へ" : "この選択で次の月へ");
+    $("btn-next").hidden = false;
+  } else {
+    out.hidden = true;
+    $("btn-next").hidden = true;
+  }
+  $("btn-skip").hidden = !(pickedIndex >= 0 && !autopilot && eventIndex < schedule.length - 1);
+  scheduleAuto();
 }
 
-// 選び直す：この月の選択を取り消して、もう一度選ぶ（運は振り直し）
-function undoChoice() {
-  if (undosLeft <= 0 || !snapshot) return;
-  STAT_KEYS.forEach((k) => { state[k] = snapshot[k]; });
-  undosLeft--;
-  snapshot = null;
-  notice = "選び直しました（残り" + undosLeft + "回）。結果は運しだいで変わります。";
-  showEvent();
+// 選択肢を選ぶ。すでに選んでいたら、前の選択を取り消して選び直す（結果は運で変わる）
+function choose(i) {
+  if (i === pickedIndex) return; // 同じ選択肢を押し直しても何も起きない
+  if (schedule[eventIndex].quiet) return;
+  if (pickedIndex >= 0 && snapshot) {
+    STAT_KEYS.forEach((k) => { state[k] = snapshot[k]; });
+    state.path = snapshot.path;
+    state.adapt = snapshot.adapt;
+  } else {
+    snapshot = {};
+    STAT_KEYS.forEach((k) => { snapshot[k] = state[k]; });
+    snapshot.path = state.path;
+    snapshot.adapt = state.adapt;
+  }
+  const outcome = pickOutcome(schedule[eventIndex].choices[i], state);
+  pickedOutcome = outcome;
+  pickedIndex = i;
+  pickedDelta = applyFx(state, outcome.fx, FX_SCALE);
+  if (outcome.path) state.path = outcome.path;
+  if (outcome.adapt) state.adapt += outcome.adapt;
+  renderMonth();
+}
+
+// その月を記録に残す
+function commitMonth() {
+  if (pickedIndex < 0 || !pickedOutcome) return;
+  const ev = schedule[eventIndex];
+  const net = ["gaku", "comu", "gakuchika", "tairyoku", "gyokai"].reduce((s, k) => s + (pickedDelta[k] || 0), 0);
+  tones[eventIndex] = net >= 3 ? "good" : net < 0 ? "bad" : "flat";
+  logEntries.push({
+    label: monthLabel(eventIndex, schedule),
+    head: ev.quiet ? "流れる月（重点：" + FOCUS[state.focus].name + "）" : tpl(ev.choices[pickedIndex].label, state),
+    text: tpl(pickedOutcome.text, state),
+    delta: Object.assign({}, pickedDelta),
+    star: false
+  });
 }
 
 function next() {
-  snapshot = null;
+  clearTimeout(autoTimer);
+  commitMonth();
   notice = "";
+  // 進路の分かれ道で大学院を選んだら、これ以降を大学院ルートに差し替える
+  if (schedule[eventIndex].decide === "path" && state.path === "grad") {
+    schedule = schedule.slice(0, eventIndex + 1).concat(buildGradSchedule());
+    state.econ = driftEcon(state.econ);   // 大学院に進むと、就活は2年後。景気も変わっているかもしれない
+    state.econKnown = false;
+    state.adapt = Math.floor(state.adapt / 2);
+  }
   if (eventIndex === schedule.length - 1) { startSelection(); return; }
   eventIndex++;
   showEvent();
 }
 
-// ----- 志望の変更 -----
+// ----- 自動進行（一時停止・速度・おまかせ） -----
+function wait(ms) { return Math.max(150, Math.round(ms / speed)); }
+function scheduleAuto() {
+  clearTimeout(autoTimer);
+  autoTimer = null;
+  if (paused || !inEvent || editorOpen) return;
+  const ev = schedule[eventIndex];
+  if (pickedIndex >= 0) {
+    // 流れる月・おまかせ中は、少し待って次の月へ
+    if (autopilot || ev.quiet) autoTimer = setTimeout(() => { if (inEvent) next(); }, skipping ? 250 : wait(ev.quiet ? 1700 : 2000));
+  } else if (autopilot) {
+    // おまかせ中は、重点に沿って自動で選ぶ
+    autoTimer = setTimeout(() => { if (inEvent && pickedIndex < 0) choose(autoPick(ev, state)); }, wait(1500));
+  }
+}
+$("btn-pause").addEventListener("click", () => {
+  paused = !paused;
+  $("btn-pause").textContent = paused ? "▶" : "❚❚";
+  $("btn-pause").title = paused ? "再開" : "一時停止";
+  scheduleAuto();
+});
+$("speeds").addEventListener("click", (e) => {
+  const b = e.target.closest(".sp");
+  if (!b) return;
+  speed = Number(b.dataset.s) || 1;
+  $("speeds").querySelectorAll(".sp").forEach((x) => x.classList.toggle("on", x === b));
+  scheduleAuto();
+});
+$("chk-auto").addEventListener("change", () => {
+  autopilot = $("chk-auto").checked;
+  if (inEvent) renderMonth();
+});
+$("sel-focus").addEventListener("change", () => {
+  focusKey = $("sel-focus").value;
+  if (!state) return;
+  state.focus = focusKey;
+  if (inEvent && schedule[eventIndex].quiet && snapshot) {
+    // 流れる月の途中で重点を変えたら、新しい重点で過ごし直す
+    STAT_KEYS.forEach((k) => { state[k] = snapshot[k]; });
+    applyQuiet();
+  }
+  if (inEvent) renderMonth();
+});
+function skipAhead() { skipping = true; next(); }
+
+// ----- 志望の変更（業界・職種・受ける会社） -----
 function openEditor() {
   if (changesLeft <= 0) return;
+  clearTimeout(autoTimer);
+  editorOpen = true;
   fillSelect($("ed-ind"), IND_ITEMS);
   $("ed-ind").value = state.ind;
-  refreshCompany("ed-ind", "ed-co");
-  $("ed-co").value = state.co;
   fillSelect($("ed-job"), JOB_ITEMS);
   $("ed-job").value = state.job;
+  edCos = state.cos.slice();
+  edPicker.setIndustry(state.ind);
+  edPicker.render();
   $("ed-panel").hidden = false;
   $("ed-panel").scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
+function closeEditor() {
+  $("ed-panel").hidden = true;
+  editorOpen = false;
+  scheduleAuto();
+}
 function applyEditor() {
   const ni = $("ed-ind").value;
-  const nc = $("ed-co").value || "";
   const nj = $("ed-job").value;
   const indChanged = ni !== state.ind;
-  if (!indChanged && nc === state.co && nj === state.job) { $("ed-panel").hidden = true; return; }
-  if (indChanged) state.gyokai = Math.floor(state.gyokai / 2);
+  const sameCos = JSON.stringify(edCos) === JSON.stringify(state.cos);
+  if (!indChanged && nj === state.job && sameCos) { closeEditor(); return; }
+  if (indChanged) {
+    // 業界を変えると、これまでの業界理解が半分になる
+    if (snapshot) snapshot.gyokai = Math.floor(snapshot.gyokai / 2);
+    state.gyokai = Math.floor(state.gyokai / 2);
+  }
   state.ind = ni;
-  state.co = nc;
   state.job = nj;
+  state.cos = edCos.slice();
   state.pivots++;
   changesLeft--;
-  notice = "志望を「" + INDUSTRIES[ni].label + "／" + JOBS[nj].name + (nc ? "／" + nc : "") + "」に変更しました。" +
+  if (pickedIndex >= 0 && snapshot) {
+    // この月にすでに選んでいた場合も、能力値がずれないように選択を反映し直す
+    STAT_KEYS.forEach((k) => { state[k] = snapshot[k]; });
+    pickedDelta = applyFx(state, pickedOutcome.fx, FX_SCALE);
+  }
+  const cos = state.cos.length ? "／" + state.cos[0].name + (state.cos.length > 1 ? " 他" + (state.cos.length - 1) + "社" : "") : "";
+  notice = "志望を「" + INDUSTRIES[ni].label + "／" + JOBS[nj].name + cos + "」に変更しました。" +
            (indChanged ? "業界が変わったため、業界理解が半分になりました。" : "");
-  showEvent();
+  renderMonth();
 }
 
 // ----- 選考ガチャ -----
 function startSelection() {
+  inEvent = false;
+  clearTimeout(autoTimer);
   showScreen("gacha");
   const bar = $("progress-bar");
   const text = $("stage-text");
@@ -1273,22 +2208,31 @@ function makeComment(st) {
   const gy = st.gyokai >= 50 ? "業界研究もしっかりできていました。"
            : st.gyokai < 25 ? "業界への理解はもう少し深めたかったところです。" : "";
   const pv = st.pivots > 0 ? "途中で志望を見直した柔軟さもありました。" : "";
-  return high[sorted[0]] + low[sorted[sorted.length - 1]] + rel + gy + pv +
+  const multi = st.cos.length >= 2 ? st.cos.length + "社に挑戦して可能性を広げました。" : "";
+  return high[sorted[0]] + low[sorted[sorted.length - 1]] + rel + gy + pv + multi +
          "（" + UNIV[st.univ].name + "／" + MAJORS[st.major].name + "／" + FAMILY[st.family].name + "）";
 }
 
 function showResult() {
-  const rank = rollOutcome(state);
-  currentResult = buildResult(state, rank);
+  const sel = selection(state);
+  currentResult = buildResult(state, sel);
   const r = $("result-rarity");
   r.textContent = "【" + currentResult.rank + "】" + currentResult.label;
   r.className = "rarity rarity-" + currentResult.rank;
+  setAvatar("res-avatar", {
+    mood: currentResult.rank === "N" ? "sad" : currentResult.rank === "R" ? "normal" : "happy",
+    outfit: "suit",
+    props: currentResult.rank === "UR" ? ["star", "cert"] : currentResult.rank === "N" ? ["cloud"] : currentResult.rank === "SR" ? ["cert"] : []
+  });
   $("result-title").textContent = currentResult.title;
   const box = $("result-box");
   box.innerHTML = currentResult.text;
   box.className = "result-box" + (currentResult.rank === "UR" ? " ur" : "");
-  $("result-comment").textContent = makeComment(state);
+  $("result-comment").textContent = ECON[state.econ].icon + " あなたの就活の年は「" + ECON[state.econ].name + "」でした。" + (state.path === "grad"
+    ? "大学院で2年間の研究を積んだあなた。" + (GRAD_MAJOR[state.major] >= 5 ? "専門性は大きな武器になりました。" : "研究で培った力が、あなたの強みになりました。") + " "
+    : "") + makeComment(state);
   renderStats($("result-stats"), state);
+  renderLogs();
   $("sim-box").hidden = true;
   lastSim = null;
   $("screen-result").classList.toggle("ur-glow", currentResult.rank === "UR");
@@ -1299,15 +2243,20 @@ function showResult() {
 function runSim() {
   const c = simulate(state, 100);
   lastSim = c;
+  const n = state.cos.length;
   const rows = ["UR", "SR", "R", "N"].map((k) =>
     '<div class="sim-row"><span>' + k + '</span><div class="bar"><i class="' + k +
     '" style="width:' + c[k] + '%"></i></div><b>' + c[k] + "回</b></div>"
   ).join("");
   const offer = c.UR + c.SR + c.R;
-  const first = state.co ? '<p class="rate">第一志望（' + esc(state.co) + "）に内定：" + c.UR + "回</p>" : "";
+  let extra = "";
+  if (n) {
+    extra = '<p class="rate">第一志望（' + esc(state.cos[0].name) + "）に内定：" + c.first + "回</p>";
+    if (n > 1) extra += '<p class="rate">受験した' + n + "社のどれかに内定（UR）：" + c.UR + "回</p>";
+  }
   const box = $("sim-box");
   box.innerHTML = "<h4>この人生で就活を100回やると…</h4>" + rows +
-    '<p class="rate">内定率：' + offer + "%</p>" + first +
+    '<p class="rate">内定率：' + offer + "%</p>" + extra +
     '<p class="small-note">※ゲーム上の架空の計算結果で、現実の統計ではありません。</p>';
   box.hidden = false;
   box.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -1316,8 +2265,10 @@ function runSim() {
 // ----- Xでシェア -----
 function shareOnX() {
   const mark = currentResult.rank === "N" ? "😭" : "🎉";
+  const n = state.cos.length;
   let text = "【限界就活ライフ】" + MAJORS[state.major].name + "から" + INDUSTRIES[state.ind].label +
-             "を志望した結果は【" + currentResult.rank + "】" + currentResult.title + " " + mark;
+             "を志望" + (n > 1 ? "（" + n + "社受験）" : "") + "した結果は【" + currentResult.rank + "】" +
+             currentResult.title + " " + mark;
   if (lastSim) {
     text += "\n100回就活したら内定率" + (lastSim.UR + lastSim.SR + lastSim.R) + "%";
   }
@@ -1330,16 +2281,19 @@ function shareOnX() {
 // ===== ボタンの動作 =====
 $("btn-start").addEventListener("click", () => showScreen("setup"));
 $("btn-enter").addEventListener("click", startLife);
-$("btn-next").addEventListener("click", next);
-$("btn-undo").addEventListener("click", undoChoice);
+$("btn-begin").addEventListener("click", beginLife);
+$("btn-spec-back").addEventListener("click", () => showScreen("setup"));
+$("btn-next").addEventListener("click", () => { skipping = false; next(); });
+$("btn-skip").addEventListener("click", skipAhead);
 $("btn-edit").addEventListener("click", openEditor);
 $("btn-ed-ok").addEventListener("click", applyEditor);
-$("btn-ed-cancel").addEventListener("click", () => { $("ed-panel").hidden = true; });
-$("ed-ind").addEventListener("change", () => refreshCompany("ed-ind", "ed-co"));
-$("btn-retry").addEventListener("click", () => showScreen("setup"));
+$("btn-ed-cancel").addEventListener("click", closeEditor);
+$("ed-ind").addEventListener("change", () => edPicker.setIndustry($("ed-ind").value));
+$("btn-retry").addEventListener("click", () => { inEvent = false; clearTimeout(autoTimer); showScreen("setup"); });
 $("btn-sim").addEventListener("click", runSim);
 $("btn-share").addEventListener("click", shareOnX);
 
+setAvatar("title-avatar", { mood: "happy", outfit: "suit", props: ["star"] });
 showScreen("title");
 </script>
 </body>
